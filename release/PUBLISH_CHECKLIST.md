@@ -16,17 +16,17 @@ No Modrinth upload, submission or moderation approval has occurred.
 | AI artwork | PASS | None generated or supplied for upload. Do not use AI-generated/edited branding or gallery images. |
 | Derivative disclosure | PREPARED | Select YES and enter the supplied attribution. |
 | Telemetry disclosure | PREPARED; MANUAL VERIFY | Inherited optional spark uploads require YES / opt-in; confirm backend/privacy details if enabled. |
-| Version/dependencies | MANUAL CHECK | Select exactly 1.21.1 and Neoforge, Alpha; mark upstream ModernFix incompatible. Do not add untested integrations as requirements. |
+| Version/dependencies | MANUAL CHECK | Select exactly 1.21.1 and NeoForge, Alpha; mark upstream ModernFix incompatible. Do not add untested integrations as requirements. |
 | Page accessibility | PASS | English text/Markdown, no image-only explanation. |
 | Name/metadata/links | MANUAL CHECK | Verify slug availability, source visibility and issue link before submission. |
 
 ## Technical checks before any distribution advertised for ordinary play
 
-- [x] Build distributable and corresponding sources with Java 25.
-- [x] Pass 12 Neoforge regression tests.
+- [x] Build distributable and corresponding sources with Java 21.
+- [x] Pass 12 NeoForge regression tests.
 - [x] Pass stable and beta Mixin audits on client and dedicated server.
 - [x] Keep original LGPL/GPL text and source notices; include Apache-2.0 notice/license.
-- [ ] MANUAL: install final JAR in clean 1.21.1/Neoforge instances on client and server.
+- [ ] MANUAL: install final JAR in clean 1.21.1/NeoForge instances on client and server.
 - [ ] MANUAL: create disposable worlds, generate terrain/strongholds, save/reopen and join
       from a client; test disconnect/reconnect and resource reloads.
 - [ ] MANUAL: test base/overlay resource packs with beta options and incompatible packs;
@@ -42,7 +42,7 @@ No Modrinth upload, submission or moderation approval has occurred.
 - [ ] MANUAL DECISION: resolve public AI eligibility before public submission; unlisted
       distribution is not an automatic exemption or guaranteed approval.
 - [ ] MANUAL: recheck current rules and inherited upstream disclosures on upload day.
-- [ ] MANUAL: verify MeridianFix name/slug, account ownership and support responsibilities.
+- [ ] MANUAL: verify ModernFix Reforged name/slug, account ownership and support responsibilities.
 - [ ] MANUAL: use MODRINTH_SETTINGS.md and the supplied name/summary/description files;
       accurately retain derivative, AI and optional profiling disclosures.
 - [ ] MANUAL: upload the runtime JAR as primary; sources JAR only as designated source
@@ -52,7 +52,7 @@ No Modrinth upload, submission or moderation approval has occurred.
 - [ ] MANUAL: preserve LGPL permissions for replacement/modification/reverse engineering;
       do not impose additional restrictions or claim ownership of upstream work.
 - [ ] MANUAL: verify SHA256SUMS, exact source revision and access without private credentials.
-- [ ] MANUAL: select only supported 1.21.1 Neoforge environment and Alpha channel; record
+- [ ] MANUAL: select only supported 1.21.1 NeoForge environment and Alpha channel; record
       tested dependency relationships in the version's dependency section.
 - [ ] MANUAL: use no artwork, or independently created/permitted non-AI artwork after
       checking its rights. Do not reuse the original icon as misleading fork branding.
