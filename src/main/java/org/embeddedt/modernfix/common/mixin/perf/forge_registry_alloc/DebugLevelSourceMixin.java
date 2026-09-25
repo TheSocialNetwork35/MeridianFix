@@ -1,7 +1,8 @@
+// ModernFix Reforged Forge 26.3: use vanilla block-state ID map after Forge removed the accessor.
 package org.embeddedt.modernfix.common.mixin.perf.forge_registry_alloc;
 
 import net.minecraft.world.level.levelgen.DebugLevelSource;
-import net.neoforged.neoforge.registries.GameData;
+import net.minecraft.world.level.block.Block;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -18,7 +19,7 @@ public class DebugLevelSourceMixin {
      */
     @Redirect(method = "initValidStates", at = @At(value = "INVOKE", target = "Ljava/util/stream/Stream;collect(Ljava/util/stream/Collector;)Ljava/lang/Object;", ordinal = 0), remap = false)
     private static Object getStateList(Stream<?> instance, Collector<?, ?, ?> arCollector) {
-        var idMapper = GameData.getBlockStateIDMap();
+        var idMapper = Block.BLOCK_STATE_REGISTRY;
         return new AbstractList<>() {
             @Override
             public int size() {

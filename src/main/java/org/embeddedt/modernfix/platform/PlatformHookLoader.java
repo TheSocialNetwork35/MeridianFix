@@ -4,7 +4,7 @@ import java.lang.reflect.Constructor;
 
 class PlatformHookLoader {
     static ModernFixPlatformHooks findInstance() {
-        String[] locations = new String[] { "neoforge", "fabric" };
+        String[] locations = new String[] { "forge" };
         for(String location : locations) {
             try {
                 Class<?> clz = Class.forName("org.embeddedt.modernfix.platform." + location + ".ModernFixPlatformHooksImpl");

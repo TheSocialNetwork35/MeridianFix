@@ -1,5 +1,5 @@
 # MeridianFix modification, 2026-09-25: build-only workflow; no upstream publishing or issue writes.
-name: Verify MeridianFix
+name: Verify ModernFix Reforged Forge
 on: [push, pull_request]
 permissions:
   contents: read

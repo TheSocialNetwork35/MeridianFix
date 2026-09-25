@@ -1,22 +1,22 @@
-# Corresponding source and rebuilding
+# Build from corresponding source
 
-Use the complete `meridianfix-0.1.0-alpha.1+mc26.3-source.zip`, or the fork revision
-recorded in RELEASE_PROVENANCE.txt. The sources JAR is a convenience; the ZIP also
-contains annotations, annotation processor, Gradle wrapper/build scripts, resources,
-tests and license files required for the multi-project build.
+Use the complete source ZIP or exact source revision in RELEASE_PROVENANCE.txt.
+Install Java 25, set JAVA_HOME and run `./gradlew --no-daemon build`.
+The ZIP includes annotations, annotation processor, wrapper, scripts, resources,
+tests and notices. The sources JAR alone is not the complete multi-project source.
+Only install the runtime JAR in mods/. Minecraft and loader binaries are downloaded
+by the build and not included in the source bundle. Modified builds may replace this
+JAR under the included licenses; preserve notices and corresponding-source availability.
 
-Install JDK 25, extract into a local directory, set JAVA_HOME, then run:
+Pinned toolchain: ForgeGradle 7.0.29, Gradle 9.7.1, Forge 66.0.3.
+
+Mixin checks (each runs server then client, exiting before gameplay):
 
 ```sh
-chmod +x gradlew
-./gradlew --no-daemon build
-./gradlew --no-daemon runAuditServer runAuditServerBeta
-./gradlew --no-daemon runAuditClient runAuditClientBeta
+./gradlew --no-daemon runServer runClient -PreforgedAudit=true
+./gradlew --no-daemon runServer runClient -PreforgedAudit=true -PreforgedFeatureLevel=BETA
 ```
 
-Client audits require a graphical environment. Gradle downloads the pinned loader,
-game and build dependencies; they are not redistributed in the source ZIP. Runtime
-artifacts are in build/libs. Only install the JAR without `-sources` in mods/.
-You may modify and rebuild under the included licenses and replace the mod JAR;
-there is no fork-imposed signing or replacement restriction. Keep original notices
-and supply corresponding source when distributing your modified version.
+The standard build runs 12 JVM component tests. Audit flags are for development
+verification only. Do not enable early Bootstrap mixin auditing before Forge's
+registry/mod setup. No server EULA acceptance is needed for this audit harness.

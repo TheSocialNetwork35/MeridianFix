@@ -1,17 +1,13 @@
-# 0.1.0-alpha.1+mc26.3
+# 0.1.0-alpha.1+mc26.3 — Forge
 
-Unofficial ModernFix fork development alpha for Minecraft 26.3 and NeoForge
-26.3.0.16-beta (Java 25).
+First ModernFix Reforged development alpha for Minecraft 26.3.
+Backports/ports independent configuration, ZIP indexing, shutdown and live map-view
+reliability improvements to this game's real APIs. Preserves original ModernFix
+credits and LGPL terms. Build, regression tests and startup Mixin audits are documented
+in TEST_REPORT.md. No gameplay/benchmark/general compatibility claim.
+Public Modrinth publication is not cleared because the new fork contribution is
+predominantly AI-generated; see PUBLISH_CHECKLIST.md.
 
-Adds overlay-aware ZIP indexes, malformed-archive fallback, iterative directory
-traversal, failure-safe configuration replacement, executor shutdown correctness,
-and live cached structure-reference views. Ports changed 26.3 game and loader APIs;
-retired patches are documented in SOURCE_CHANGES.md.
-
-The build and 12 NeoForge regression tests pass. Client and server Mixin audits
-pass at stable and beta feature levels. Full gameplay, world persistence and
-third-party mod compatibility remain untested. No benchmark claims.
-
-This is a Codex-generated fork contribution with preserved upstream credits and
-LGPL-3.0-or-later terms. Public Modrinth publication is not cleared; consult
-PUBLISH_CHECKLIST.md before any upload. No AI-generated imagery is included.
+Native ForgeGradle 7 / Forge 66 port with Forge EventBus 7 adapters, corrected
+language-mixin signatures and explicit access transformation. NeoForge-specific
+features excluded from this alpha are listed in FORGE_26_PORT.md.

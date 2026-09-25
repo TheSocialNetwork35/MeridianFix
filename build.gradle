@@ -1,0 +1,63 @@
+// ModernFix Reforged, 2026-09-25: native Forge 66 / Minecraft 26.3 build.
+plugins {
+    id 'java'
+    id 'net.minecraftforge.gradle' version '7.0.29'
+}
+group = 'org.embeddedt'
+version = '0.1.0-alpha.1+mc26.3'
+base.archivesName = 'modernfix-reforged-forge'
+java { toolchain.languageVersion = JavaLanguageVersion.of(25); withSourcesJar() }
+minecraft {
+    accessTransformer = true
+    runs {
+        configureEach {
+            workingDir = layout.projectDirectory.dir('run')
+            args '--mixin.config=modernfix-modernfix.mixins.json'
+            systemProperty 'modernfix.auditAndExit', providers.gradleProperty('reforgedAudit').getOrElse('false')
+            systemProperty 'modernfix.config.stability_level', providers.gradleProperty('reforgedFeatureLevel').getOrElse('GA')
+        }
+        register('client') {
+            systemProperty 'java.awt.headless', 'true'
+            if (System.getProperty('os.name').toLowerCase().contains('mac')) jvmArgs '-XstartOnFirstThread'
+        }
+        register('server') { args '--nogui' }
+    }
+}
+repositories {
+    minecraft.mavenizer(it)
+    maven fg.forgeMaven
+    maven fg.minecraftLibsMaven
+    mavenCentral()
+    maven { url 'https://cursemaven.com' }
+}
+configurations { embed }
+dependencies {
+    implementation minecraft.dependency('net.minecraftforge:forge:26.3-66.0.3')
+    implementation project(':annotations')
+    embed project(':annotations')
+    annotationProcessor project(path: ':annotation-processor', configuration: 'shadow')
+    compileOnly 'curse.maven:spark-361579:6225208'
+    compileOnly 'curse.maven:ctm-267602:5587515'
+    testImplementation platform('org.junit:junit-bom:5.13.4')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    if (!name.toLowerCase().contains('test')) options.compilerArgs += ['-ArootProject.name=modernfix','-Aproject.name=modernfix']
+}
+sourceSets.main.resources.srcDir layout.buildDirectory.dir('generated/sources/annotationProcessor/java/main/resources')
+processResources {
+    dependsOn compileJava
+    inputs.property 'version', project.version
+    filesMatching('META-INF/mods.toml') { expand version: project.version }
+}
+jar {
+    from { configurations.embed.collect { it.isDirectory() ? it : zipTree(it) } }
+    manifest.attributes 'MixinConfigs': 'modernfix-modernfix.mixins.json',
+        'Implementation-Title': 'ModernFix Reforged (unofficial fork)', 'Implementation-Version': project.version
+}
+tasks.withType(AbstractArchiveTask).configureEach { preserveFileTimestamps = false; reproducibleFileOrder = true }
+tasks.withType(Jar).configureEach { from 'LICENSE','ATTRIBUTION.md','THIRD_PARTY_NOTICES.md'; from('licenses') { into 'licenses' } }
+sourcesJar { dependsOn compileJava }
+test { useJUnitPlatform() }

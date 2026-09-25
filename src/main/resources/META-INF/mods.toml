@@ -1,0 +1,24 @@
+modLoader="javafml"
+loaderVersion="[66,)"
+license="LGPL-3.0-or-later"
+issueTrackerURL="https://github.com/TheSocialNetwork35/MeridianFix/issues"
+[[mods]]
+modId="modernfix"
+version="${version}"
+displayName="ModernFix Reforged (unofficial fork)"
+displayURL="https://github.com/TheSocialNetwork35/MeridianFix"
+authors="embeddedt and ModernFix contributors; fork maintained by TheSocialNetwork35"
+displayTest="IGNORE_ALL_VERSION"
+description="Unofficial ModernFix fork for Minecraft 26.3 / Forge, with independent reliability fixes."
+[[dependencies.modernfix]]
+modId="forge"
+mandatory=true
+versionRange="[66.0.3,67)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.modernfix]]
+modId="minecraft"
+mandatory=true
+versionRange="[26.3]"
+ordering="NONE"
+side="BOTH"

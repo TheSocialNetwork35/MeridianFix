@@ -36,12 +36,7 @@ public class ModernFixClient {
         INSTANCE = this;
         // clear reserve as it's not needed
         MemoryReserve.release();
-        if(ModernFixMixinPlugin.instance.isOptionEnabled("feature.branding.F3Screen")) {
-            brandingString = ModernFix.NAME + " " + ModernFixPlatformHooks.INSTANCE.getVersionString();
-            if (ModernFixMixinPlugin.activeFeatureLevel() != FeatureLevel.GA) {
-                brandingString = brandingString + "[" + ModernFixMixinPlugin.activeFeatureLevel().name() + "]";
-            }
-        }
+        // Forge 26 has no NeoForge branding hook.
         for(String className : ModernFixPlatformHooks.INSTANCE.getCustomModOptions().get(IntegrationConstants.CLIENT_INTEGRATION_CLASS)) {
             try {
                 CLIENT_INTEGRATIONS.add((ModernFixClientIntegration)Class.forName(className).getDeclaredConstructor().newInstance());
@@ -50,11 +45,7 @@ public class ModernFixClient {
             }
         }
 
-        if(ModernFixMixinPlugin.instance.isOptionEnabled("perf.dynamic_resources.FireIntegrationHook")) {
-            for(ModernFixClientIntegration integration : ModernFixClient.CLIENT_INTEGRATIONS) {
-                integration.onDynamicResourcesStatusChange(true);
-            }
-        }
+        // Dynamic resources are excluded from this Forge port.
     }
 
     public void resetWorldLoadStateMachine() {

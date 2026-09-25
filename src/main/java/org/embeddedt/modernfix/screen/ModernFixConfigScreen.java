@@ -1,4 +1,4 @@
-// MeridianFix port, 2026-09-25: use 26.3 GUI, language and browser APIs.
+// ModernFix Reforged port, 2026-09-25: use 26.3 GUI, language and browser APIs.
 package org.embeddedt.modernfix.screen;
 
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -17,7 +17,7 @@ public class ModernFixConfigScreen extends Screen {
     private double lastScrollAmount = 0;
 
     public ModernFixConfigScreen(Screen lastScreen) {
-        super(Component.literal("MeridianFix"));
+        super(Component.literal("ModernFix Reforged"));
         this.lastScreen = lastScreen;
     }
 
@@ -27,7 +27,7 @@ public class ModernFixConfigScreen extends Screen {
         this.optionList.setScrollAmount(lastScrollAmount);
         this.addWidget(this.optionList);
         this.wikiButton = new Button.Builder(Component.translatable("modernfix.config.wiki"), (arg) -> {
-            com.mojang.blaze3d.Blaze3D.openUri(java.net.URI.create("https://github.com/TheSocialNetwork35/MeridianFix"));
+            com.mojang.blaze3d.Blaze3D.openUri(java.net.URI.create("https://github.com/TheSocialNetwork35/ModernFix Reforged"));
         }).pos(this.width / 2 - 155, this.height - 29).size(150, 20).build();
         this.doneButton = new Button.Builder(CommonComponents.GUI_DONE, (arg) -> {
             this.onClose();

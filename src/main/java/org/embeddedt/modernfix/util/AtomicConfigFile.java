@@ -1,4 +1,4 @@
-/* MeridianFix addition, 2026-09-25. SPDX-License-Identifier: LGPL-3.0-or-later */
+/* ModernFix Reforged addition, 2026-09-25. SPDX-License-Identifier: LGPL-3.0-or-later */
 package org.embeddedt.modernfix.util;
 
 import java.io.IOException;
@@ -23,7 +23,7 @@ public final class AtomicConfigFile {
         Files.createDirectories(target.getParent());
         // Resolve existing symlinks so saving does not replace the link itself.
         if (Files.isSymbolicLink(target)) target = target.toRealPath();
-        Path temporary = Files.createTempFile(target.getParent(), ".meridianfix-", ".tmp");
+        Path temporary = Files.createTempFile(target.getParent(), ".reforged-", ".tmp");
         try {
             // Properties.load(InputStream) uses ISO-8859-1; preserve that contract.
             try (Writer writer = Files.newBufferedWriter(temporary, StandardCharsets.ISO_8859_1)) {

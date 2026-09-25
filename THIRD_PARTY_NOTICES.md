@@ -12,7 +12,7 @@ as identified by the upstream README: https://github.com/CaffeineMC/sodium.
 - Apache License, Version 2.0; full text supplied in licenses/Apache-2.0.txt.
 - Source: https://github.com/google/guava/tree/v21.0/guava/src/com/google/common/base
 
-ModernFix adapted the formatting routines into TimeFormatter. MeridianFix retains
+ModernFix adapted the formatting routines into TimeFormatter. ModernFix Reforged retains
 the implementation and adds these explicit notices. This notice does not replace
 the LGPL terms of the overall fork or any other existing source-specific rights.
 

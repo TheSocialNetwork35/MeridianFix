@@ -1,6 +1,6 @@
 # Attribution and license provenance
 
-MeridianFix is an **unofficial fork** of [ModernFix](https://github.com/embeddedt/ModernFix),
+ModernFix Reforged is an **unofficial fork** of [ModernFix](https://github.com/embeddedt/ModernFix),
 created by **embeddedt and the ModernFix contributors**. It is not endorsed by those
 authors, Mojang, or Microsoft. Fork maintainer: TheSocialNetwork35.
 
@@ -26,13 +26,13 @@ ModernFix. The upstream README attributes the configuration system to Sodium,
 used under LGPL-3.0; that credit is preserved. Some fixes derive from Forge PRs
 and other projects: their in-file notices and history remain authoritative.
 `doc/upstream/README.md` preserves the original acknowledgements, including YourKit.
-The original icon remains an upstream source asset; it is not selected as MeridianFix
+The original icon remains an upstream source asset; it is not selected as ModernFix Reforged
 branding and no new icon, logo or gallery artwork has been generated.
 
 ## Changes
 
 See `release/SOURCE_CHANGES.md` and the Git diff against the baseline for the exact
-fork modifications. Modified implementation files carry dated MeridianFix notices.
+fork modifications. Modified implementation files carry dated ModernFix Reforged notices.
 Package names and the `modernfix` mod ID are retained for integration and conflict
 detection; display metadata identifies this fork separately.
 
@@ -62,3 +62,13 @@ of AI involvement. A complete upstream provenance audit has not been performed.
 
 See THIRD_PARTY_NOTICES.md for Guava formatting routines (Apache-2.0) and the
 lwjgl3ify StbStitcher adaptation (LGPL v3). Their existing source notices are retained.
+
+## Forge 26.3 port
+
+This branch additionally derives from MeridianFix commit
+f797aa54988c5c200ac85e2a4d541ced3c39b0ed. Native Forge 66.0.3/ForgeGradle 7.0.29
+loader, lifecycle and EventBus 7 adapters were written by Codex on 2026-09-25.
+NeoForge-specific implementations were preserved outside the compiled source tree
+under src/retired/forge26-java. See doc/FORGE_26_PORT.md for exclusions.
+Forge API documentation and its MDK examples were consulted; Forge/Minecraft
+runtime code is not redistributed inside this mod JAR.
