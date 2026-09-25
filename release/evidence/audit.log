@@ -1,0 +1,352 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :checkDanglingMixinPackageInfo
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :annotations:compileJava UP-TO-DATE
+> Task :annotations:processResources NO-SOURCE
+> Task :annotations:classes UP-TO-DATE
+> Task :annotations:jar UP-TO-DATE
+> Task :annotation-processor:compileJava UP-TO-DATE
+> Task :annotation-processor:processResources UP-TO-DATE
+> Task :annotation-processor:classes UP-TO-DATE
+> Task :annotation-processor:shadowJar UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :writeAuditServerLegacyClasspath
+> Task :prepareAuditServerRun
+
+> Task :runAuditServer
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[16:33:50] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserveruserdev, --gameDir, ., --fml.neoForgeVersion, 21.1.111, --fml.fmlVersion, 4.0.35, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430]
+[16:33:50] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12.1+1-LTS
+[16:33:50] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.4+main.d2e20e43 starting: java version 21.0.12.1 by Eclipse Adoptium; OS Mac OS X arch aarch64 version 27.0
+[16:33:51] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserveruserdev
+[16:33:51] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%2389!/ Service=ModLauncher Env=SERVER
+[16:33:51] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[16:33:51] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Minecraft 1.21.1 (minecraft)
+		ModernFix Reforged (unofficial fork) 0.1.0-alpha.1+mc1.21.1 (modernfix)
+		NeoForge 21.1.111 (neoforge)
+[16:33:51] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[16:33:51] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserveruserdev' with arguments [--gameDir, .]
+[16:33:51] [main/INFO] [ModernFix/]: Loaded configuration file for ModernFix [unknown]: 89 options available, 0 override(s) found
+[16:33:51] [main/INFO] [ModernFix/]: Applying Nashorn fix
+[16:33:52] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[16:33:52] [main/INFO] [minecraft/Bootstrap]: ModernFix reached bootstrap stage (2.684 s after launch)
+[16:33:55] [main/INFO] [minecraft/Bootstrap]: Vanilla bootstrap took 2733 milliseconds
+[16:33:55] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:33:55] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:33:55] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[16:33:55] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[16:33:55] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:33:55] [modloading-worker-0/INFO] [ModernFix/]: ModernFix Reforged: unofficial ModernFix fork; not endorsed by upstream.
+[16:33:55] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.111, for MC 1.21.1
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$YConditionSource$1YCondition
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$BiomeConditionSource$1BiomeCondition
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceSystem
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.server.level.ChunkHolder
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$Context
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.PalettedContainer
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.server.level.ChunkMap
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.util.datafix.DataFixTypes
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.neoforged.neoforge.event.AddReloadListenerEvent$WrappedStateAwareListener
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.server.packs.FilePackResources$SharedZipFileAccess
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$WaterConditionSource$1WaterCondition
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.util.SortedArraySet
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.material.MaterialRuleList
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$StoneDepthCheck$1StoneDepthCondition
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$SequenceRule
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.ImposterProtoChunk
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.server.packs.resources.ProfiledReloadInstance
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.biome.BiomeManager
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase$Cache
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.server.packs.resources.SimpleReloadInstance
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.NoiseChunk
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$VerticalGradientConditionSource$1VerticalGradientCondition
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.server.ServerFunctionManager
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.neoforged.neoforge.internal.BrandingControl
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.server.WorldLoader
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.item.crafting.RecipeManager
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.server.packs.PathPackResources
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.tags.TagEntry
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.status.ChunkStatusTasks
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.server.ReloadableServerResources
+[16:33:56] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.ChunkGeneratorStructureState
+
+> Task :writeAuditClientLegacyClasspath
+> Task :prepareAuditClientRun
+
+> Task :runAuditClient
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[16:33:57] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, 21.1.111, --assetIndex, 17, --assetsDir, HOME_DIRECTORY/.gradle/caches/neoformruntime/assets, --gameDir, ., --fml.neoForgeVersion, 21.1.111, --fml.fmlVersion, 4.0.35, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430]
+[16:33:57] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12.1+1-LTS
+[16:33:57] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.4+main.d2e20e43 starting: java version 21.0.12.1 by Eclipse Adoptium; OS Mac OS X arch aarch64 version 27.0
+[16:33:57] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
+[16:33:58] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
+[16:33:58] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.5
+[16:33:58] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.4
+[16:33:58] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.3
+[16:33:58] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.2
+[16:33:58] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.1
+[16:33:58] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.1 got version 4.1
+[16:33:58] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%23127!/ Service=ModLauncher Env=CLIENT
+[16:33:58] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[16:33:58] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Minecraft 1.21.1 (minecraft)
+		ModernFix Reforged (unofficial fork) 0.1.0-alpha.1+mc1.21.1 (modernfix)
+		NeoForge 21.1.111 (neoforge)
+[16:33:59] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: Apple M2 GL version 4.1 Metal - 91.7, Apple
+[16:33:59] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[16:33:59] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, 21.1.111, --gameDir, ., --assetsDir, HOME_DIRECTORY/.gradle/caches/neoformruntime/assets, --assetIndex, 17]
+[16:34:00] [main/INFO] [ModernFix/]: Loaded configuration file for ModernFix [unknown]: 89 options available, 0 override(s) found
+[16:34:00] [main/INFO] [ModernFix/]: Applying Nashorn fix
+[16:34:00] [main/INFO] [ModernFix/]: Configuring Minecraft's max.bg.threads option with 5 threads
+[16:34:00] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[16:34:01] [Datafixer Bootstrap/INFO] [mojang/DataFixerBuilder]: 229 Datafixer optimizations took 231 milliseconds
+[16:34:01] [pool-7-thread-1/INFO] [minecraft/Bootstrap]: ModernFix reached bootstrap stage (5.214 s after launch)
+[16:34:04] [pool-7-thread-1/INFO] [minecraft/Bootstrap]: Vanilla bootstrap took 2551 milliseconds
+[16:34:04] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:34:04] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:34:04] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[16:34:04] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[16:34:04] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:34:04] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:HOME_DIRECTORY/.cache/modernfix-reforged/mc1.21.1/build/moddev/artifacts/neoforge-21.1.111.jar%23180!/assets/.mcassetsroot' uses unexpected schema
+[16:34:04] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:HOME_DIRECTORY/.cache/modernfix-reforged/mc1.21.1/build/moddev/artifacts/neoforge-21.1.111.jar%23180!/data/.mcassetsroot' uses unexpected schema
+[16:34:05] [Render thread/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[16:34:05] [Render thread/INFO] [minecraft/Minecraft]: Setting user: Dev
+[16:34:05] [Render thread/INFO] [minecraft/Minecraft]: Backend library: LWJGL version 3.3.3+5
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 0 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[16:34:05] [modloading-worker-0/INFO] [ModernFix/]: ModernFix Reforged: unofficial ModernFix fork; not endorsed by upstream.
+[16:34:05] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.111, for MC 1.21.1
+[16:34:05] [Render thread/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: []
+[16:34:06] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/neoforge, mod/modernfix
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$YConditionSource$1YCondition
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$BiomeConditionSource$1BiomeCondition
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceSystem
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.renderer.chunk.SectionCompiler
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.server.level.ChunkHolder
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$Context
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.PalettedContainer
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.server.level.ChunkMap
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.renderer.block.model.multipart.Selector
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.server.players.PlayerList
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.neoforged.neoforge.event.AddReloadListenerEvent$WrappedStateAwareListener
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.renderer.entity.LivingEntityRenderer
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$WaterConditionSource$1WaterCondition
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.gui.screens.worldselection.WorldOpenFlows
+[16:34:06] [Worker-ResourceReload-5/INFO] [minecraft/UnihexProvider]: Found unifont_all_no_pua-15.1.05.hex, loading
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.material.MaterialRuleList
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.util.SortedArraySet
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$StoneDepthCheck$1StoneDepthCondition
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$SequenceRule
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.gui.font.providers.UnihexProvider$ByteContents
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.ImposterProtoChunk
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.biome.BiomeManager
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.renderer.block.model.MultiVariant
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.renderer.item.ItemProperties
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.multiplayer.SessionSearchTrees
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.renderer.entity.player.PlayerRenderer
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase$Cache
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.NoiseChunk
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.renderer.entity.EnderDragonRenderer
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$VerticalGradientConditionSource$1VerticalGradientCondition
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.gui.font.providers.UnihexProvider$ShortContents
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.server.ServerFunctionManager
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.multiplayer.ClientConfigurationPacketListenerImpl
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.server.WorldLoader
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.gui.screens.ConnectScreen
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.item.crafting.RecipeManager
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.tags.TagEntry
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.stats.RecipeBookSettings
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.status.ChunkStatusTasks
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.server.ReloadableServerResources
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.renderer.texture.Stitcher
+[16:34:06] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.ChunkGeneratorStructureState
+
+> Task :writeAuditServerBetaLegacyClasspath
+> Task :prepareAuditServerBetaRun
+
+> Task :runAuditServerBeta
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[16:34:07] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserveruserdev, --gameDir, ., --fml.neoForgeVersion, 21.1.111, --fml.fmlVersion, 4.0.35, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430]
+[16:34:07] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12.1+1-LTS
+[16:34:07] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.4+main.d2e20e43 starting: java version 21.0.12.1 by Eclipse Adoptium; OS Mac OS X arch aarch64 version 27.0
+[16:34:07] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserveruserdev
+[16:34:07] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%2389!/ Service=ModLauncher Env=SERVER
+[16:34:07] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[16:34:07] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Minecraft 1.21.1 (minecraft)
+		ModernFix Reforged (unofficial fork) 0.1.0-alpha.1+mc1.21.1 (modernfix)
+		NeoForge 21.1.111 (neoforge)
+[16:34:07] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[16:34:07] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserveruserdev' with arguments [--gameDir, .]
+[16:34:08] [main/INFO] [ModernFix/]: Configured stability_level to 'BETA' via JVM property.
+[16:34:08] [main/INFO] [ModernFix/]: Loaded configuration file for ModernFix [unknown]: 89 options available, 1 override(s) found
+[16:34:08] [main/WARN] [ModernFix/]: ModernFix stability level is set to BETA. Features at this level may be unstable or cause crashes.
+[16:34:08] [main/WARN] [ModernFix/]: Option 'stability_level' overriden (by user configuration) to 'BETA'
+[16:34:08] [main/INFO] [ModernFix/]: Applying Nashorn fix
+[16:34:08] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[16:34:08] [main/INFO] [minecraft/Bootstrap]: ModernFix reached bootstrap stage (2.305 s after launch)
+[16:34:11] [main/INFO] [minecraft/Bootstrap]: Vanilla bootstrap took 2223 milliseconds
+[16:34:11] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:34:11] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:34:11] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[16:34:11] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[16:34:11] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:34:11] [modloading-worker-0/INFO] [ModernFix/]: ModernFix Reforged: unofficial ModernFix fork; not endorsed by upstream.
+[16:34:11] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.111, for MC 1.21.1
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.server.packs.FilePackResources
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$YConditionSource$1YCondition
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$BiomeConditionSource$1BiomeCondition
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceSystem
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.server.level.ChunkHolder
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$Context
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.PalettedContainer
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.server.level.ChunkMap
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.util.datafix.DataFixTypes
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.neoforged.neoforge.event.AddReloadListenerEvent$WrappedStateAwareListener
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.server.packs.FilePackResources$SharedZipFileAccess
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$WaterConditionSource$1WaterCondition
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.util.SortedArraySet
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.material.MaterialRuleList
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$StoneDepthCheck$1StoneDepthCondition
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$SequenceRule
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.ImposterProtoChunk
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.server.packs.resources.ProfiledReloadInstance
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.biome.BiomeManager
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase$Cache
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.server.packs.resources.SimpleReloadInstance
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.NoiseChunk
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$VerticalGradientConditionSource$1VerticalGradientCondition
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.server.ServerFunctionManager
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.neoforged.neoforge.internal.BrandingControl
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.server.WorldLoader
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.item.crafting.RecipeManager
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.server.packs.PathPackResources
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.tags.TagEntry
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.status.ChunkStatusTasks
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.server.ReloadableServerResources
+[16:34:11] [modloading-sync-worker/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.ChunkGeneratorStructureState
+
+> Task :writeAuditClientBetaLegacyClasspath
+> Task :prepareAuditClientBetaRun
+
+> Task :runAuditClientBeta
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[16:34:12] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, 21.1.111, --assetIndex, 17, --assetsDir, HOME_DIRECTORY/.gradle/caches/neoformruntime/assets, --gameDir, ., --fml.neoForgeVersion, 21.1.111, --fml.fmlVersion, 4.0.35, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430]
+[16:34:12] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12.1+1-LTS
+[16:34:12] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.4+main.d2e20e43 starting: java version 21.0.12.1 by Eclipse Adoptium; OS Mac OS X arch aarch64 version 27.0
+[16:34:12] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
+[16:34:13] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
+[16:34:13] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.5
+[16:34:13] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.4
+[16:34:13] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.3
+[16:34:13] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.2
+[16:34:13] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.1
+[16:34:13] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.1 got version 4.1
+[16:34:13] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%23127!/ Service=ModLauncher Env=CLIENT
+[16:34:13] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[16:34:13] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Minecraft 1.21.1 (minecraft)
+		ModernFix Reforged (unofficial fork) 0.1.0-alpha.1+mc1.21.1 (modernfix)
+		NeoForge 21.1.111 (neoforge)
+[16:34:13] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: Apple M2 GL version 4.1 Metal - 91.7, Apple
+[16:34:14] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[16:34:14] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, 21.1.111, --gameDir, ., --assetsDir, HOME_DIRECTORY/.gradle/caches/neoformruntime/assets, --assetIndex, 17]
+[16:34:14] [main/INFO] [ModernFix/]: Configured stability_level to 'BETA' via JVM property.
+[16:34:14] [main/INFO] [ModernFix/]: Loaded configuration file for ModernFix [unknown]: 89 options available, 1 override(s) found
+[16:34:14] [main/WARN] [ModernFix/]: ModernFix stability level is set to BETA. Features at this level may be unstable or cause crashes.
+[16:34:14] [main/WARN] [ModernFix/]: Option 'stability_level' overriden (by user configuration) to 'BETA'
+[16:34:14] [main/INFO] [ModernFix/]: Applying Nashorn fix
+[16:34:14] [main/INFO] [ModernFix/]: Configuring Minecraft's max.bg.threads option with 5 threads
+[16:34:14] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[16:34:15] [Datafixer Bootstrap/INFO] [mojang/DataFixerBuilder]: 229 Datafixer optimizations took 191 milliseconds
+[16:34:15] [pool-7-thread-1/INFO] [minecraft/Bootstrap]: ModernFix reached bootstrap stage (3.745 s after launch)
+[16:34:17] [pool-7-thread-1/INFO] [minecraft/Bootstrap]: Vanilla bootstrap took 1799 milliseconds
+[16:34:17] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:34:17] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:34:17] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[16:34:18] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[16:34:18] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[16:34:18] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:HOME_DIRECTORY/.cache/modernfix-reforged/mc1.21.1/build/moddev/artifacts/neoforge-21.1.111.jar%23180!/assets/.mcassetsroot' uses unexpected schema
+[16:34:18] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:HOME_DIRECTORY/.cache/modernfix-reforged/mc1.21.1/build/moddev/artifacts/neoforge-21.1.111.jar%23180!/data/.mcassetsroot' uses unexpected schema
+[16:34:18] [Render thread/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[16:34:18] [Render thread/INFO] [minecraft/Minecraft]: Setting user: Dev
+[16:34:18] [Render thread/INFO] [minecraft/Minecraft]: Backend library: LWJGL version 3.3.3+5
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 0 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[16:34:18] [modloading-worker-0/INFO] [ModernFix/]: ModernFix Reforged: unofficial ModernFix fork; not endorsed by upstream.
+[16:34:18] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.111, for MC 1.21.1
+[16:34:18] [Render thread/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: []
+[16:34:18] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/neoforge, mod/modernfix
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$YConditionSource$1YCondition
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$BiomeConditionSource$1BiomeCondition
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceSystem
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.renderer.chunk.SectionCompiler
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.model.geom.builders.CubeDefinition
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.server.level.ChunkHolder
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$Context
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.PalettedContainer
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.server.level.ChunkMap
+[16:34:19] [Worker-ResourceReload-0/INFO] [minecraft/UnihexProvider]: Found unifont_all_no_pua-15.1.05.hex, loading
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.renderer.block.model.multipart.Selector
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.server.players.PlayerList
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.neoforged.neoforge.event.AddReloadListenerEvent$WrappedStateAwareListener
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.renderer.entity.LivingEntityRenderer
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$WaterConditionSource$1WaterCondition
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.gui.screens.worldselection.WorldOpenFlows
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.material.MaterialRuleList
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.util.SortedArraySet
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$StoneDepthCheck$1StoneDepthCondition
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$SequenceRule
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.gui.font.providers.UnihexProvider$ByteContents
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.ImposterProtoChunk
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.biome.BiomeManager
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.renderer.block.model.MultiVariant
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.renderer.item.ItemProperties
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.multiplayer.SessionSearchTrees
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.renderer.entity.player.PlayerRenderer
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase$Cache
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.NoiseChunk
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.renderer.entity.EnderDragonRenderer
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.SurfaceRules$VerticalGradientConditionSource$1VerticalGradientCondition
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.gui.font.providers.UnihexProvider$ShortContents
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.server.ServerFunctionManager
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.multiplayer.ClientConfigurationPacketListenerImpl
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.server.WorldLoader
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.gui.screens.ConnectScreen
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.item.crafting.RecipeManager
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.tags.TagEntry
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.stats.RecipeBookSettings
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.status.ChunkStatusTasks
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.server.ReloadableServerResources
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.renderer.texture.Stitcher
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.gui.font.providers.GlyphProviderType
+[16:34:19] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.ChunkGeneratorStructureState
+
+[Incubating] Problems report is available at: file://HOME_DIRECTORY/.cache/modernfix-reforged/mc1.21.1/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 36s
+22 actionable tasks: 13 executed, 9 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

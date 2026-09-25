@@ -1,3 +1,4 @@
+// ModernFix Reforged modifications, 2026-09-25: strict ZIP validation and non-recursive traversal.
 package org.embeddedt.modernfix.resources;
 
 import it.unimi.dsi.fastutil.ints.IntArrayList;
@@ -67,12 +68,13 @@ public class ZipPackIndex {
         }
 
         void freeze() {
-            if (fileChildOffsets instanceof IntArrayList arrayList) {
-                arrayList.trim();
-            }
-            childDirs = childDirs.isEmpty() ? Map.of() : Map.copyOf(childDirs);
-            for (DirNode child : childDirs.values()) {
-                child.freeze();
+            Deque<DirNode> pending = new ArrayDeque<>();
+            pending.push(this);
+            while (!pending.isEmpty()) {
+                DirNode node = pending.pop();
+                if (node.fileChildOffsets instanceof IntArrayList list) list.trim();
+                pending.addAll(node.childDirs.values());
+                node.childDirs = node.childDirs.isEmpty() ? Map.of() : Map.copyOf(node.childDirs);
             }
         }
     }
@@ -83,6 +85,7 @@ public class ZipPackIndex {
 
     /** Central directory buffer (memory-mapped or heap-allocated fallback). May be null for empty/invalid zips. */
     private final ByteBuffer cdBuffer;
+    private final String resourcePrefix;
     /** Top-level directories tracked by the index. */
     private final Set<String> trackedTopLevelDirs;
     /** Root of the directory tree, always non-null (may be empty but frozen). */
@@ -99,6 +102,12 @@ public class ZipPackIndex {
      * @throws IOException if the file cannot be read or its central directory cannot be parsed
      */
     public ZipPackIndex(Path zipPath) throws IOException {
+        this(zipPath, "");
+    }
+
+    /** Index one overlay independently; prefix is the FilePackResources overlay directory. */
+    public ZipPackIndex(Path zipPath, String prefix) throws IOException {
+        this.resourcePrefix = prefix.isEmpty() ? "" : prefix + "/";
         this.cdBuffer = readCentralDirectory(zipPath);
         // Computed here (not statically) so that any loader-injected PackType values
         // registered after class-load are included.
@@ -119,7 +128,7 @@ public class ZipPackIndex {
     private static ByteBuffer readCentralDirectory(Path filePath) throws IOException {
         try (SeekableByteChannel channel = obtainChannel(filePath)) {
             long fileSize = channel.size();
-            if (fileSize < EOCD_SIZE) return null;
+            if (fileSize < EOCD_SIZE) throw new IOException("Truncated ZIP end record");
 
             int tailSize = (int) Math.min(fileSize, (long) EOCD_SIZE + EOCD_MAX_COMMENT_LENGTH);
             ByteBuffer tail = ByteBuffer.allocate(tailSize);
@@ -149,15 +158,26 @@ public class ZipPackIndex {
                     }
                 }
             }
-            if (eocdPos < 0) return null;
+            if (eocdPos < 0) throw new IOException("Missing ZIP end record");
 
             long cdSize = Integer.toUnsignedLong(tail.getInt(eocdPos + EOCD_OFF_CD_SIZE));
             long cdOffset = Integer.toUnsignedLong(tail.getInt(eocdPos + EOCD_OFF_CD_OFFSET));
-            if (cdSize == 0) return null;
+            int disk = Short.toUnsignedInt(tail.getShort(eocdPos + 4));
+            int cdDisk = Short.toUnsignedInt(tail.getShort(eocdPos + 6));
+            int diskEntries = Short.toUnsignedInt(tail.getShort(eocdPos + 8));
+            int totalEntries = Short.toUnsignedInt(tail.getShort(eocdPos + 10));
+            if (disk != 0 || cdDisk != 0 || diskEntries != totalEntries) {
+                throw new IOException("Multi-disk ZIP is not supported by the index");
+            }
+            if (cdSize > Integer.MAX_VALUE) throw new IOException("ZIP directory exceeds buffer limits");
+            if (cdSize == 0) {
+                if (totalEntries != 0) throw new IOException("Missing central directory entries");
+                return null;
+            }
             if (cdSize == 0xFFFFFFFFL || cdOffset == 0xFFFFFFFFL) {
                 throw new IOException("ZIP64 not supported by ZipPackIndex");
             }
-            if (cdOffset > fileSize - cdSize) {
+            if (cdOffset > tailStart + eocdPos - cdSize) {
                 throw new IOException("Invalid central directory range");
             }
 
@@ -197,10 +217,11 @@ public class ZipPackIndex {
         int pos = 0;
         int limit = cdBuffer.limit();
         while (pos + CD_ENTRY_HEADER_SIZE <= limit) {
-            if (cdBuffer.getInt(pos) != CD_ENTRY_SIGNATURE) break;
+            if (cdBuffer.getInt(pos) != CD_ENTRY_SIGNATURE) throw new IOException("Invalid central directory signature");
             pos += indexCdEntry(pos, limit, treeRoot, cdBuffer);
         }
 
+        if (pos != limit) throw new IOException("Incomplete central directory record");
         treeRoot.freeze();
         return treeRoot;
     }
@@ -223,6 +244,15 @@ public class ZipPackIndex {
         byte[] nameBytes = new byte[fileNameLen];
         cdBuffer.get(pos + CD_ENTRY_HEADER_SIZE, nameBytes);
 
+        String entryName = new String(nameBytes, StandardCharsets.UTF_8);
+        if (entryName.startsWith("/") || entryName.contains("//")) return recordLen;
+        if (!entryName.startsWith(resourcePrefix)) return recordLen;
+        entryName = entryName.substring(resourcePrefix.length());
+        nameBytes = entryName.getBytes(StandardCharsets.UTF_8);
+        fileNameLen = nameBytes.length;
+        for (String segment : entryName.split("/")) {
+            if (segment.equals(".") || segment.equals("..")) return recordLen;
+        }
         DirNode current = treeRoot;
         boolean tracked = false;
         boolean skipped = false;
@@ -305,6 +335,7 @@ public class ZipPackIndex {
     }
 
     public boolean hasResource(String... paths) {
+        if (paths.length == 0) return false;
         var node = this.root;
         for (int i = 0; i < paths.length - 1; i++) {
             var path = paths[i];
@@ -357,7 +388,7 @@ public class ZipPackIndex {
         }
 
         // entryPrefix = the part of the zip entry name before the ResourceLocation path
-        String entryPrefix = type.getDirectory() + "/" + namespace + "/";
+        String entryPrefix = resourcePrefix + type.getDirectory() + "/" + namespace + "/";
         collectResources(node, entryPrefix, rlSubPath, zipFile, namespace, output);
     }
 
@@ -371,23 +402,23 @@ public class ZipPackIndex {
     private void collectResources(DirNode node, String entryPrefix, String rlSubPath,
                                   ZipFile zipFile, String namespace,
                                   PackResources.ResourceOutput output) {
-        // Emit direct file children of this node
-        var offsets = node.fileChildOffsets;
-        for (int i = 0; i < offsets.size(); i++) {
-            String basename = readBasename(offsets.getInt(i));
-            String rlPathFull = rlSubPath + basename;
-            ResourceLocation rl = ResourceLocation.tryBuild(namespace, rlPathFull);
-            if (rl != null) {
-                ZipEntry entry = zipFile.getEntry(entryPrefix + rlPathFull);
-                if (entry != null) {
-                    output.accept(rl, IoSupplier.create(zipFile, entry));
+        record Visit(DirNode node, String path) {}
+        Deque<Visit> pending = new ArrayDeque<>();
+        pending.push(new Visit(node, rlSubPath));
+        while (!pending.isEmpty()) {
+            Visit visit = pending.pop();
+            var offsets = visit.node().fileChildOffsets;
+            for (int i = 0; i < offsets.size(); i++) {
+                String fullPath = visit.path() + readBasename(offsets.getInt(i));
+                ResourceLocation id = ResourceLocation.tryBuild(namespace, fullPath);
+                if (id != null) {
+                    ZipEntry entry = zipFile.getEntry(entryPrefix + fullPath);
+                    if (entry != null) output.accept(id, IoSupplier.create(zipFile, entry));
                 }
             }
-        }
-        // Recurse into subdirectories
-        for (Map.Entry<String, DirNode> child : node.childDirs.entrySet()) {
-            collectResources(child.getValue(), entryPrefix,
-                    rlSubPath + child.getKey() + "/", zipFile, namespace, output);
+            for (var child : visit.node().childDirs.entrySet()) {
+                pending.push(new Visit(child.getValue(), visit.path() + child.getKey() + "/"));
+            }
         }
     }
 }

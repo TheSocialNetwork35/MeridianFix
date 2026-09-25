@@ -1,3 +1,5 @@
+// ModernFix Reforged modification, 2026-09-25: version-specific ZIP access and failure cache.
+// ModernFix Reforged modifications, 2026-09-25: cache index failure until pack close.
 package org.embeddedt.modernfix.common.mixin.perf.resourcepacks;
 
 import net.minecraft.server.packs.FilePackResources;
@@ -28,26 +30,35 @@ public class FilePackResourcesMixin {
     @Final
     private FilePackResources.SharedZipFileAccess zipFileAccess;
 
+    @Shadow
+    @Final
+    private String prefix;
+
     @Unique
     @Nullable
     private volatile ZipPackIndex mf$packIndex;
 
     @Unique
+    private volatile boolean mf$indexFailed;
+
+    @Unique
     @Nullable
     private ZipPackIndex mf$getOrCreateIndex() {
+        if (mf$indexFailed) return null;
         var index = mf$packIndex;
         if (index == null) {
             synchronized (this) {
                 index = mf$packIndex;
-                if (index == null) {
+                if (index == null && !mf$indexFailed) {
                     // Ensure the ZipFile is open first; if it fails, getOrCreateZipFile returns null.
                     var access = ((SharedZipFileAccessAccessor)this.zipFileAccess);
                     if (access.mfix$getOrCreateZipFile() == null) {
                         return null;
                     }
                     try {
-                        mf$packIndex = index = new ZipPackIndex(access.mfix$getFile().toPath());
+                        mf$packIndex = index = new ZipPackIndex(access.mfix$getFile().toPath(), this.prefix);
                     } catch (IOException e) {
+                        mf$indexFailed = true;
                         ModernFix.LOGGER.error("Failed to build zip index for {}", access.mfix$getFile(), e);
                     }
                 }
@@ -89,6 +100,9 @@ public class FilePackResourcesMixin {
      */
     @Inject(method = "close", at = @At("HEAD"))
     private void mf$invalidateIndex(CallbackInfo ci) {
-        mf$packIndex = null;
+        synchronized (this) {
+            mf$packIndex = null;
+            mf$indexFailed = false;
+        }
     }
 }

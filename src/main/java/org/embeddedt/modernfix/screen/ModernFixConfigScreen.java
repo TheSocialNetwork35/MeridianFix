@@ -1,3 +1,4 @@
+// ModernFix Reforged modification, 2026-09-25: fork support link.
 package org.embeddedt.modernfix.screen;
 
 import net.minecraft.client.gui.GuiGraphics;
@@ -16,7 +17,7 @@ public class ModernFixConfigScreen extends Screen {
     private double lastScrollAmount = 0;
 
     public ModernFixConfigScreen(Screen lastScreen) {
-        super(Component.translatable("modernfix.config"));
+        super(Component.literal("ModernFix Reforged"));
         this.lastScreen = lastScreen;
     }
 
@@ -26,7 +27,7 @@ public class ModernFixConfigScreen extends Screen {
         this.optionList.setScrollAmount(lastScrollAmount);
         this.addWidget(this.optionList);
         this.wikiButton = new Button.Builder(Component.translatable("modernfix.config.wiki"), (arg) -> {
-            Util.getPlatform().openUri("https://github.com/embeddedt/ModernFix/wiki/Summary-of-Patches");
+            Util.getPlatform().openUri("https://github.com/TheSocialNetwork35/MeridianFix");
         }).pos(this.width / 2 - 155, this.height - 29).size(150, 20).build();
         this.doneButton = new Button.Builder(CommonComponents.GUI_DONE, (arg) -> {
             this.onClose();

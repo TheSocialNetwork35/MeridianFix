@@ -1,3 +1,4 @@
+// ModernFix Reforged modification, 2026-09-25: identity and dedicated-server audit exit.
 package org.embeddedt.modernfix;
 
 import net.minecraft.SharedConstants;
@@ -26,7 +27,7 @@ public class ModernFix {
 
     public static final String MODID = "modernfix";
 
-    public static String NAME = "ModernFix";
+    public static String NAME = "ModernFix Reforged";
 
     public static ModernFix INSTANCE;
 
@@ -53,7 +54,7 @@ public class ModernFix {
             MixinEnvironment.getCurrentEnvironment().audit();
             if (auditAndExit) {
                 // Prevents Crash Assistant from treating mixin audit as a crash
-                Minecraft.getInstance().stop();
+                if (!ModernFixPlatformHooks.INSTANCE.isDedicatedServer()) Minecraft.getInstance().stop();
                 System.exit(0);
             }
         }
@@ -61,6 +62,7 @@ public class ModernFix {
 
     public ModernFix() {
         INSTANCE = this;
+        LOGGER.info("ModernFix Reforged: unofficial ModernFix fork; not endorsed by upstream.");
         if(ModernFixMixinPlugin.instance.isOptionEnabled("feature.snapshot_easter_egg.NameChange") && !SharedConstants.getCurrentVersion().isStable())
             NAME = "PreemptiveFix";
         ModernFixPlatformHooks.INSTANCE.onServerCommandRegister(ModernFixCommands::register);

@@ -9,9 +9,9 @@ modLoader = "javafml" #mandatory
 loaderVersion = "[1,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
 # The license for you mod. This is mandatory metadata and allows for easier comprehension of your redistributive properties.
 # Review your options at https://choosealicense.com/. All rights reserved is the default copyright stance, and is thus the default here.
-license = "GNU LGPL 3.0"
+license = "LGPL-3.0-or-later"
 # A URL to refer people to when problems occur with this mod
-issueTrackerURL="https://github.com/embeddedt/ModernFix/issues" #optional
+issueTrackerURL="https://github.com/TheSocialNetwork35/MeridianFix/issues" #optional
 
 [[mixins]]
 config="modernfix-modernfix.mixins.json"
@@ -22,20 +22,20 @@ config="modernfix-modernfix.mixins.json"
 modId = "modernfix" #mandatory
 version = "${version}" #mandatory
 # A display name for the mod
-displayName = "ModernFix" #mandatory
+displayName = "ModernFix Reforged (unofficial fork)" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
 #updateJSONURL="http://myurl.me/" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
-displayURL="https://modrinth.com/mod/modernfix" #optional
+displayURL="https://github.com/TheSocialNetwork35/MeridianFix" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
-logoFile="icon.png" #optional
+# Original icon retained as upstream source asset, not used for fork branding. #optional
 # A text field displayed in the mod UI
 #credits="Thanks for this example mod goes to Java" #optional
 # A text field displayed in the mod UI
-authors="embeddedt" #optional
+authors="embeddedt and ModernFix contributors; fork maintained by TheSocialNetwork35" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description = '''
-Egregious, yet effective performance improvements for modern Minecraft
+Unofficial ModernFix fork with configuration, resource-index and executor reliability changes.
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.modernfix]] #optional
@@ -44,7 +44,7 @@ modId = "neoforge" #mandatory
 # Does this dependency have to exist - if not, ordering below must be specified
 type = "required" #mandatory
 # The version range of the dependency
-versionRange = "[21.0.111-beta,)" #mandatory
+versionRange = "[21.1.111,21.2)" #mandatory
 # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
 ordering = "NONE"
 # Side this dependency is applied on - BOTH, CLIENT or SERVER
@@ -54,7 +54,7 @@ side = "BOTH"
 modId = "minecraft"
 type = "required"
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
-versionRange = "[1.21, 1.22)"
+versionRange = "[1.21.1]"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.modernfix]]

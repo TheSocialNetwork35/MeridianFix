@@ -182,3 +182,9 @@ Temporary Items
 # Linux trash folder which might appear on any partition or disk
 .Trash-*
 
+
+!release/CHANGELOG.md
+release/*.jar
+release/*-source.zip
+release/SHA256SUMS
+release/RELEASE_PROVENANCE.txt

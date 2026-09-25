@@ -1,3 +1,4 @@
+// ModernFix Reforged modification, 2026-09-25: atomic configuration replacement.
 package org.embeddedt.modernfix.core.config;
 
 import com.google.common.base.Splitter;
@@ -534,17 +535,7 @@ public class ModernFixEarlyConfig {
     }
 
     public void save() throws IOException {
-        File dir = configFile.getParentFile();
-
-        if (!dir.exists()) {
-            if (!dir.mkdirs()) {
-                throw new IOException("Could not create parent directories");
-            }
-        } else if (!dir.isDirectory()) {
-            throw new IOException("The parent file is not a directory");
-        }
-
-        try (Writer writer = new FileWriter(configFile)) {
+        org.embeddedt.modernfix.util.AtomicConfigFile.write(configFile.toPath(), writer -> {
             writer.write("# This is the configuration file for ModernFix.\n");
             writer.write("# In general, prefer using the config screen to editing this file. It can be accessed\n");
             writer.write("# via the standard mod menu on your respective mod loader. Changes will, however,\n");
@@ -588,7 +579,7 @@ public class ModernFixEarlyConfig {
                 if(option.isUserDefined())
                     writer.write(key + "=" + option.getSerializedValue() + "\n");
             }
-        }
+        });
     }
 
     private static String getMixinRuleName(String name) {
