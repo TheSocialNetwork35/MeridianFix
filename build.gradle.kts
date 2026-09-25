@@ -1,22 +1,14 @@
 plugins {
-    id("net.neoforged.moddev") version("2.0.140")
-    id("me.modmuss50.mod-publish-plugin") version("2.1.1")
+    id("net.neoforged.moddev") version("2.0.147")
 }
 
 val minecraft_version = rootProject.properties["minecraft_version"].toString()
 
 group = "org.embeddedt"
 
-val gitVersion = providers.of(GitVersionSource::class) {
-    parameters {
-        minecraftVersion.set(minecraft_version)
-        projectDir.set(rootProject.layout.projectDirectory)
-    }
-}
+version = "0.1.0-alpha.1+mc26.3"
 
-version = gitVersion.get()
-
-base.archivesName = "modernfix-neoforge"
+base.archivesName = "meridianfix-neoforge"
 
 neoForge {
     enable {
@@ -41,6 +33,18 @@ neoForge {
         create("server") {
             server()
         }
+        create("auditServerBeta") {
+            server()
+            jvmArguments.addAll("-Dmodernfix.auditAndExit=true", "-Dmodernfix.config.stability_level=BETA")
+        }
+        create("auditClientBeta") {
+            client()
+            jvmArguments.addAll("-Dmodernfix.auditAndExit=true", "-Dmodernfix.config.stability_level=BETA", "-Djava.awt.headless=true")
+        }
+        create("auditServer") {
+            server()
+            jvmArguments.add("-Dmodernfix.auditAndExit=true")
+        }
         create("auditClient") {
             client()
             jvmArguments.addAll("-Dmodernfix.auditAndExit=true", "-Djava.awt.headless=true")
@@ -57,7 +61,7 @@ neoForge {
 tasks.named<Jar>("jar") {
     manifest.attributes(mapOf(
         "Specification-Version" to "1",
-        "Implementation-Title" to project.name,
+        "Implementation-Title" to "MeridianFix (unofficial ModernFix fork)",
         "Implementation-Version" to version
     ))
 }
@@ -69,24 +73,6 @@ java {
 }
 
 repositories {
-    exclusiveContent {
-        forRepository {
-            maven {
-                // location of the maven that hosts JEI files
-                name = "Progwml6 maven"
-                url = uri("https://dvs1.progwml6.com/files/maven/")
-            }
-        }
-        forRepository {
-            maven {
-                name = "ModMaven"
-                url = uri("https://modmaven.dev")
-            }
-        }
-        filter {
-            includeGroup("mezz.jei")
-        }
-    }
     exclusiveContent {
         forRepository {
             maven("https://cursemaven.com")
@@ -108,17 +94,8 @@ dependencies {
     embed(project(":annotations"))
     annotationProcessor(project(path = ":annotation-processor", configuration = "shadow"))
 
-    val jei_version = rootProject.properties["jei_version"].toString()
-    val jei_minecraft_version = rootProject.properties["jei_minecraft_version"]?.toString() ?: minecraft_version
-    compileOnly("mezz.jei:jei-${jei_minecraft_version}-neoforge:${jei_version}")
     compileOnly("curse.maven:spark-361579:${rootProject.properties["spark_version"].toString()}")
     compileOnly("curse.maven:ctm-267602:${rootProject.properties["ctm_version"].toString()}")
-    compileOnly("curse.maven:ldlib-626676:${rootProject.properties["ldlib_version"].toString()}")
-    compileOnly("curse.maven:supermartijncore-454372:4455391")
-    compileOnly("curse.maven:cofhcore-69162:5374122")
-    compileOnly("curse.maven:resourcefullib-570073:5659871")
-    compileOnly("curse.maven:kubejs-238086:5853326")
-    compileOnly("curse.maven:terrablender-neoforge-940057:8046313")
 }
 
 tasks.named<Jar>("jar") {
@@ -182,48 +159,32 @@ tasks.named<ProcessResources>("processResources") {
     }
 }
 
-val finalJarTask = "jar"
+// MeridianFix modification, 2026-09-25: reproducible artifacts with license/source bundles.
+java { withSourcesJar() }
+tasks.withType<AbstractArchiveTask>().configureEach {
+    isPreserveFileTimestamps = false
+    isReproducibleFileOrder = true
+}
+tasks.named<Jar>("jar") {
+    from("LICENSE", "ATTRIBUTION.md", "THIRD_PARTY_NOTICES.md")
+    from("licenses") { into("licenses") }
+}
+dependencies {
+    testImplementation(platform("org.junit:junit-bom:5.13.4"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+tasks.test { useJUnitPlatform() }
 
-tasks.register<Copy>("copyJarNameConsistent") {
-    from(tasks.named<Jar>(finalJarTask).get().outputs.files)
-    into(project.file("build/libs"))
-    rename { _ -> "modernfix-" + project.name + "-latest.jar" }
+tasks.named<Jar>("sourcesJar") {
+    dependsOn(tasks.named("compileJava"))
+    from("LICENSE", "ATTRIBUTION.md", "THIRD_PARTY_NOTICES.md")
+    from("licenses") { into("licenses") }
 }
 
-tasks.register<Copy>("copyJarToBin") {
-    from(tasks.named<Jar>(finalJarTask).get().outputs.files)
-    into(rootProject.file("bin"))
-    mustRunAfter(tasks.named("copyJarNameConsistent"))
-}
-
-tasks.named("build") {
-    dependsOn("copyJarToBin", "copyJarNameConsistent")
-}
-
-publishMods {
-    file.set(tasks.named<Jar>(finalJarTask).flatMap { it.archiveFile })
-    displayName.set(tasks.named<Jar>(finalJarTask).flatMap { it.archiveFileName })
-    changelog = "Please check the [GitHub wiki](https://github.com/embeddedt/ModernFix/wiki/Changelog) for major changes."
-    type = STABLE
-
-    modLoaders.add("neoforge")
-
-    curseforge {
-        projectId = "790626"
-        projectSlug = "modernfix"
-        accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
-        minecraftVersions.add(minecraft_version)
-        client = true
-        server = true
+neoForge {
+    unitTest {
+        enable()
+        testedMod = mods.getByName("modernfix")
     }
-    modrinth {
-        projectId = "nmDcB62a"
-        accessToken = providers.environmentVariable("MODRINTH_TOKEN")
-        minecraftVersions.add(minecraft_version)
-        environment = CLIENT_OR_SERVER_PREFERS_BOTH
-    }
-}
-
-tasks.named("publishMods") {
-    dependsOn(finalJarTask)
 }

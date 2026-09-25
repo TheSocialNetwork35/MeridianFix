@@ -1,3 +1,4 @@
+// MeridianFix port, 2026-09-25: overlay ownership moved to Gui.
 package org.embeddedt.modernfix.common.mixin.feature.measure_time;
 
 import net.minecraft.client.Minecraft;
@@ -16,11 +17,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @ClientOnlyMixin
 public class MinecraftMixin {
     // TODO re-add datapack reload time measurement
-    @Shadow @Nullable public Overlay overlay;
 
     @Inject(method = "tick", at = @At("HEAD"))
     private void onClientTick(CallbackInfo ci) {
-        if(this.overlay == null && ModernFixClient.INSTANCE != null) {
+        if(((Minecraft)(Object)this).gui.overlay() == null && ModernFixClient.INSTANCE != null) {
             ModernFixClient.INSTANCE.onGameLaunchFinish();
         }
     }

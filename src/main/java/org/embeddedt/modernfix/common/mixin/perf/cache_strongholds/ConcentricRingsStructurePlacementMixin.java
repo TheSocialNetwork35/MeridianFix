@@ -1,3 +1,4 @@
+// MeridianFix port, 2026-09-25: updated spreading-placement constructor descriptor.
 package org.embeddedt.modernfix.common.mixin.perf.cache_strongholds;
 
 import net.minecraft.world.level.chunk.ChunkGeneratorStructureState;
@@ -59,7 +60,7 @@ public class ConcentricRingsStructurePlacementMixin {
      * chunk produced by rounding and biome snapping.
      */
     @Inject(
-        method = "<init>(Lnet/minecraft/core/Vec3i;Lnet/minecraft/world/level/levelgen/structure/placement/StructurePlacement$FrequencyReductionMethod;FILjava/util/Optional;IIILnet/minecraft/core/HolderSet;)V",
+        method = "<init>(Lnet/minecraft/core/Vec3i;Lnet/minecraft/world/level/levelgen/structure/placement/AbstractSpreadingStructurePlacement$FrequencyReductionMethod;FILjava/util/Optional;IIILnet/minecraft/core/HolderSet;)V",
         at = @At("RETURN")
     )
     private void mfix$computeRadiusBounds(CallbackInfo ci) {

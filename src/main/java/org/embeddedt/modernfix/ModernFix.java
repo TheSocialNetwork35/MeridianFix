@@ -1,3 +1,4 @@
+// MeridianFix modification, 2026-09-25: explicit fork identification at startup.
 package org.embeddedt.modernfix;
 
 import net.minecraft.SharedConstants;
@@ -26,7 +27,7 @@ public class ModernFix {
 
     public static final String MODID = "modernfix";
 
-    public static String NAME = "ModernFix";
+    public static String NAME = "MeridianFix";
 
     public static ModernFix INSTANCE;
 
@@ -53,13 +54,16 @@ public class ModernFix {
             MixinEnvironment.getCurrentEnvironment().audit();
             if (auditAndExit) {
                 // Prevents Crash Assistant from treating mixin audit as a crash
-                Minecraft.getInstance().stop();
+                if (!ModernFixPlatformHooks.INSTANCE.isDedicatedServer()) {
+                    Minecraft.getInstance().stop();
+                }
                 System.exit(0);
             }
         }
     }
 
     public ModernFix() {
+        LOGGER.info("MeridianFix: unofficial ModernFix fork for Minecraft 26.3; not endorsed by upstream.");
         INSTANCE = this;
         if(ModernFixMixinPlugin.instance.isOptionEnabled("feature.snapshot_easter_egg.NameChange") && !SharedConstants.getCurrentVersion().stable())
             NAME = "PreemptiveFix";

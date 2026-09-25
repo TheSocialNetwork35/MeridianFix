@@ -1,3 +1,4 @@
+// MeridianFix port, 2026-09-25: forward NotificationManager in server constructor.
 package org.embeddedt.modernfix.common.mixin.perf.suspend_integrated_server_during_load;
 
 import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
@@ -35,8 +36,8 @@ public abstract class IntegratedServerMixin extends MinecraftServer implements I
     private int mfix$numTickServerCalls = 0;
     private final AtomicBoolean mfix$hasPrimaryClientJoined = new AtomicBoolean(false);
 
-    public IntegratedServerMixin(Thread serverThread, LevelStorageSource.LevelStorageAccess storageSource, PackRepository packRepository, WorldStem worldStem, Optional<GameRules> gameRules, Proxy proxy, DataFixer fixerUpper, Services services, LevelLoadListener levelLoadListener, boolean propagatesCrashes) {
-        super(serverThread, storageSource, packRepository, worldStem, gameRules, proxy, fixerUpper, services, levelLoadListener, propagatesCrashes);
+    public IntegratedServerMixin(Thread serverThread, LevelStorageSource.LevelStorageAccess storageSource, PackRepository packRepository, WorldStem worldStem, Optional<GameRules> gameRules, Proxy proxy, DataFixer fixerUpper, Services services, LevelLoadListener levelLoadListener, boolean propagatesCrashes, net.minecraft.server.notifications.NotificationManager notificationManager) {
+        super(serverThread, storageSource, packRepository, worldStem, gameRules, proxy, fixerUpper, services, levelLoadListener, propagatesCrashes, notificationManager);
     }
 
     /**

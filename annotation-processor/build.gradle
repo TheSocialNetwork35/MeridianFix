@@ -1,3 +1,4 @@
+// MeridianFix modification, 2026-09-25: pin annotation processor Mixin API.
 plugins {
     id 'com.gradleup.shadow' version '8.3.9'
     id 'java-library'
@@ -23,7 +24,7 @@ dependencies {
     implementation project(":annotations")
     shadow project(":annotations")
     // Shadow annotations
-    implementation 'net.fabricmc:sponge-mixin:0.12.5+'
+    implementation 'net.fabricmc:sponge-mixin:0.12.5+mixin.0.8.5'
     implementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
     implementation 'net.minecraftforge:mergetool:1.1.7'
     implementation 'net.neoforged:mergetool:2.0.2'

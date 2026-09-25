@@ -1,3 +1,4 @@
+// MeridianFix port, 2026-09-25: retain 26.3 RTree children-per-node when deferring creation.
 package org.embeddedt.modernfix.common.mixin.perf.worldgen_allocation;
 
 import com.mojang.datafixers.util.Pair;
@@ -30,8 +31,12 @@ public class ClimateParameterListMixin<T> {
     @Unique
     private volatile boolean mfix$initialized;
 
-    @Redirect(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/biome/Climate$RTree;create(Ljava/util/List;)Lnet/minecraft/world/level/biome/Climate$RTree;"))
-    private Climate.RTree<T> deferCreation(List<Pair<Climate.ParameterPoint, T>> nodes) {
+    @Unique
+    private int mfix$childrenPerNode;
+
+    @Redirect(method = "<init>(Ljava/util/List;I)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/biome/Climate$RTree;create(Ljava/util/List;I)Lnet/minecraft/world/level/biome/Climate$RTree;"))
+    private Climate.RTree<T> deferCreation(List<Pair<Climate.ParameterPoint, T>> nodes, int childrenPerNode) {
+        this.mfix$childrenPerNode = childrenPerNode;
         return null;
     }
 
@@ -40,7 +45,7 @@ public class ClimateParameterListMixin<T> {
         if (!this.mfix$initialized) {
             synchronized (this) {
                 if (!this.mfix$initialized) {
-                    this.index = Climate.RTree.create(this.values);
+                    this.index = Climate.RTree.create(this.values, this.mfix$childrenPerNode);
                     this.mfix$initialized = true;
                 }
             }

@@ -1,3 +1,4 @@
+// MeridianFix port, 2026-09-25: use 26.3 GUI, language and browser APIs.
 package org.embeddedt.modernfix.screen;
 
 import net.minecraft.client.gui.Font;
@@ -29,7 +30,7 @@ public class ModernFixOptionInfoScreen extends Screen {
 
     @Override
     public void onClose() {
-        this.minecraft.setScreen(lastScreen);
+        this.minecraft.gui.setScreen(lastScreen);
     }
 
     private void drawMultilineString(GuiGraphicsExtractor guiGraphics, Font fr, Component str, int x, int y) {

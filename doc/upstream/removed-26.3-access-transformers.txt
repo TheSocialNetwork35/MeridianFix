@@ -1,0 +1,36 @@
+public net.minecraft.world.level.levelgen.SurfaceRules$Context
+public net.minecraft.world.item.crafting.Ingredient$Value
+public net.minecraft.client.renderer.block.model.multipart.MultiPart definition
+public net.minecraft.world.level.levelgen.SurfaceRules$SequenceRule
+public net.minecraft.world.level.levelgen.SurfaceRules$SequenceRule <init>(Ljava/util/List;)V
+public net.minecraft.world.level.levelgen.SurfaceRules$SequenceRuleSource
+public net.minecraft.world.level.levelgen.SurfaceRules$SequenceRuleSource <init>(Ljava/util/List;)V
+public net.minecraft.world.level.levelgen.SurfaceRules$TestRuleSource
+public net.minecraft.world.level.levelgen.SurfaceRules$TestRuleSource <init>(Lnet/minecraft/world/level/levelgen/SurfaceRules$ConditionSource;Lnet/minecraft/world/level/levelgen/SurfaceRules$RuleSource;)V
+public net.minecraft.world.level.levelgen.SurfaceRules$BiomeConditionSource
+public net.minecraft.world.level.levelgen.SurfaceRules$BiomeConditionSource <init>(Ljava/util/List;)V
+public net.minecraft.world.level.levelgen.SurfaceRules$BiomeConditionSource biomes
+public net.minecraft.world.level.levelgen.SurfaceRules$Context biome
+public net.minecraft.client.resources.model.ModelBakery$BlockStateDefinitionException
+public net.minecraft.world.item.crafting.Ingredient$TagValue f_43959_
+public net.minecraft.world.level.levelgen.DensityFunctions$Marker
+public net.minecraft.world.level.levelgen.DensityFunctions$Marker <init>(Lnet/minecraft/world/level/levelgen/DensityFunctions$Marker$Type;Lnet/minecraft/world/level/levelgen/DensityFunction;)V
+public-f net.minecraft.client.renderer.block.model.ItemOverrides$BakedOverride model
+public net.minecraft.Util makeExecutor(Ljava/lang/String;)Ljava/util/concurrent/ExecutorService;
+public net.minecraft.world.level.levelgen.SurfaceRules$Condition
+public net.minecraft.world.level.levelgen.DensityFunctions$Marker$Type
+public net.minecraft.world.level.levelgen.DensityFunctions$MulOrAdd
+public net.minecraft.world.level.levelgen.DensityFunctions$MulOrAdd <init>(Lnet/minecraft/world/level/levelgen/DensityFunctions$MulOrAdd$Type;Lnet/minecraft/world/level/levelgen/DensityFunction;DDD)V
+public net.minecraft.world.level.levelgen.DensityFunctions$Mapped$Type
+public net.minecraft.client.renderer.block.model.BlockElementFace$Deserializer
+public net.minecraft.world.level.levelgen.DensityFunctions$Mapped
+public net.minecraft.world.level.levelgen.DensityFunctions$Mapped <init>(Lnet/minecraft/world/level/levelgen/DensityFunctions$Mapped$Type;Lnet/minecraft/world/level/levelgen/DensityFunction;DD)V
+public net.minecraft.world.level.levelgen.SurfaceRules$SurfaceRule
+public net.minecraft.client.renderer.RenderType$CompositeRenderType
+public net.minecraft.world.level.levelgen.SurfaceRules$LazyCondition
+public net.minecraft.client.resources.model.ModelBakery$BakedCacheKey
+public net.minecraft.client.resources.model.ModelBakery$BakedCacheKey <init>(Lnet/minecraft/resources/ResourceLocation;Lcom/mojang/math/Transformation;Z)V
+public net.minecraft.world.item.crafting.Ingredient$ItemValue
+public net.minecraft.world.level.levelgen.DensityFunctions$MulOrAdd$Type
+public net.minecraft.client.renderer.entity.EnderDragonRenderer$DragonModel entity
+public net.minecraft.client.resources.model.BlockStateModelLoader$LoadedBlockModelDefinition

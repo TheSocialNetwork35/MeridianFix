@@ -1,3 +1,4 @@
+// MeridianFix port, 2026-09-25: block cache baking now runs inside SolidDebugger lambda.
 package org.embeddedt.modernfix.common.mixin.feature.registry_event_progress;
 
 import com.llamalad7.mixinextras.sugar.Local;
@@ -31,19 +32,19 @@ public class BlockCallbacksMixin {
         this.addedBlocks = new ReferenceLinkedOpenHashSet<>(this.addedBlocks);
     }
 
-    @Inject(method = "onBake", at = @At("HEAD"))
+    @Inject(method = "lambda$onBake$0", at = @At("HEAD"))
     private void startBakeProgress(CallbackInfo ci, @Share("meter") LocalRef<ProgressMeter> meter) {
         meter.set(StartupNotificationManager.prependProgressBar("Build blockstate caches", addedBlocks.size()));
     }
 
-    @Inject(method = "onBake", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/Block;getStateDefinition()Lnet/minecraft/world/level/block/state/StateDefinition;", ordinal = 0))
+    @Inject(method = "lambda$onBake$0", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/Block;getStateDefinition()Lnet/minecraft/world/level/block/state/StateDefinition;", ordinal = 0))
     private void showBakeProgressPerBlock(CallbackInfo ci, @Local(ordinal = 0) Block block, @Share("meter") LocalRef<ProgressMeter> meter) {
         var id = block.builtInRegistryHolder().getKey().identifier();
         meter.get().label("Build blockstate caches - " + id.toString());
         meter.get().increment();
     }
 
-    @Inject(method = "onBake", at = @At(value = "INVOKE", target = "Ljava/util/Set;clear()V", ordinal = 0))
+    @Inject(method = "lambda$onBake$0", at = @At(value = "INVOKE", target = "Ljava/util/Set;clear()V", ordinal = 0))
     private void stopBakeProgress(CallbackInfo ci, @Share("meter") LocalRef<ProgressMeter> meter) {
         meter.get().complete();
     }

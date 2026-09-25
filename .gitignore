@@ -182,3 +182,12 @@ Temporary Items
 # Linux trash folder which might appear on any partition or disk
 .Trash-*
 
+
+# MeridianFix release metadata is intentionally versioned.
+!release/CHANGELOG.md
+release/*.jar
+release/*-source.zip
+
+# Generated packaging metadata contains the final source revision.
+release/RELEASE_PROVENANCE.txt
+release/SHA256SUMS

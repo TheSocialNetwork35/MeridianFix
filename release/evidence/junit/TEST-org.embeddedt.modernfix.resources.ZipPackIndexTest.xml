@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.embeddedt.modernfix.resources.ZipPackIndexTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-09-25T13:43:10.423Z" hostname="5.local" time="0.03">
+  <properties/>
+  <testcase name="nonCanonicalZipNamesDoNotAliasValidResources()" classname="org.embeddedt.modernfix.resources.ZipPackIndexTest" time="0.013"/>
+  <testcase name="emptyZipIsValid()" classname="org.embeddedt.modernfix.resources.ZipPackIndexTest" time="0.001"/>
+  <testcase name="truncatedDirectoryIsRejected()" classname="org.embeddedt.modernfix.resources.ZipPackIndexTest" time="0.003"/>
+  <testcase name="malformedArchiveFallsBackInsteadOfAppearingEmpty()" classname="org.embeddedt.modernfix.resources.ZipPackIndexTest" time="0.001"/>
+  <testcase name="deepArchiveDoesNotOverflowTheStack()" classname="org.embeddedt.modernfix.resources.ZipPackIndexTest" time="0.006"/>
+  <testcase name="overlayIndexDoesNotExposeBaseOrOtherOverlayResources()" classname="org.embeddedt.modernfix.resources.ZipPackIndexTest" time="0.003"/>
+  <testcase name="validIndexKeepsNamespacesAndResourceLookup()" classname="org.embeddedt.modernfix.resources.ZipPackIndexTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

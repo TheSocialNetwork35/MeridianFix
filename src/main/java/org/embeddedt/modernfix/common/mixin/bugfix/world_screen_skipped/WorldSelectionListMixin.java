@@ -1,3 +1,4 @@
+// MeridianFix port, 2026-09-25: use 26.3 GUI, language and browser APIs.
 package org.embeddedt.modernfix.common.mixin.bugfix.world_screen_skipped;
 
 import net.minecraft.client.Minecraft;
@@ -18,7 +19,7 @@ public class WorldSelectionListMixin {
 
     @Inject(method = "*", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screens/worldselection/WorldSelectionList$WorldListEntry;doDeleteWorld()V", ordinal = 0, shift = At.Shift.AFTER), cancellable = true)
     private void preventClosingCreateScreenAfterDelete(CallbackInfo ci) {
-        if(minecraft.screen instanceof CreateWorldScreen)
+        if(minecraft.gui.screen() instanceof CreateWorldScreen)
             ci.cancel();
     }
 }

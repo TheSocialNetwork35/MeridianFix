@@ -1,0 +1,1 @@
+Unofficial ModernFix fork developing resource-pack and configuration reliability improvements for Minecraft 26.3.

@@ -1,3 +1,4 @@
+// MeridianFix port, 2026-09-25: use 26.3 GUI, language and browser APIs.
 package org.embeddedt.modernfix.screen;
 
 import com.google.common.collect.ImmutableList;
@@ -42,7 +43,7 @@ public class OptionList extends ContainerObjectSelectionList<OptionList.Entry> {
     private static MutableComponent getOptionComponent(Option<?> option) {
         String friendlyKey = "modernfix.option.name." + option.getName();
         MutableComponent baseComponent = Component.literal(option.getSelfName());
-        if(I18n.exists(friendlyKey))
+        if(net.minecraft.locale.Language.getInstance().has(friendlyKey))
             return Component.translatable(friendlyKey).withStyle(style -> style.withHoverEvent(new HoverEvent.ShowText(baseComponent)));
         else
             return baseComponent;
@@ -111,7 +112,7 @@ public class OptionList extends ContainerObjectSelectionList<OptionList.Entry> {
 
         public void extractContent(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY, boolean isMouseOver, float partialTicks) {
             Font var10000 = OptionList.this.minecraft.font;
-            float x = (float)(OptionList.this.minecraft.screen.width / 2 - this.width / 2);
+            float x = (float)(OptionList.this.minecraft.gui.screen().width / 2 - this.width / 2);
             int y = getY() + getHeight() - 10;
             guiGraphics.text(var10000, this.name, (int)x, y, -1);
             /*
@@ -168,9 +169,9 @@ public class OptionList extends ContainerObjectSelectionList<OptionList.Entry> {
             updateStatus();
             this.helpButton = new Button.Builder(Component.literal("?"), (arg) -> {
                 mainScreen.setLastScrollAmount(scrollAmount());
-                Minecraft.getInstance().setScreen(new ModernFixOptionInfoScreen(mainScreen, optionName));
+                Minecraft.getInstance().gui.setScreen(new ModernFixOptionInfoScreen(mainScreen, optionName));
             }).pos(75, 0).size(20, 20).build();
-            if(!I18n.exists("modernfix.option." + optionName)) {
+            if(!net.minecraft.locale.Language.getInstance().has("modernfix.option." + optionName)) {
                 this.helpButton.active = false;
                 if(ModernFixPlatformHooks.INSTANCE.isDevEnv() && OPTIONS_MISSING_HELP.add(optionName))
                     ModernFix.LOGGER.warn("Missing help for {}", optionName);

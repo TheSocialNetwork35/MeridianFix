@@ -1,25 +1,26 @@
-# ModernFix
+# MeridianFix
 
-A performance mod for modern Minecraft that significantly improves launch times, world load times, memory usage, etc.
+**Unofficial ModernFix fork, maintained separately by TheSocialNetwork35.**
+Not endorsed by embeddedt, the ModernFix contributors, Mojang, or Microsoft.
 
-Some fixes are based on prior work in various Forge PRs (check commit history and/or code comments). The config system
-is directly derived from Sodium and used under the terms of the LGPL-3.0 license.
+Development alpha for **Minecraft 26.3 / NeoForge 26.3.0.16-beta / Java 25**.
+Build, 12 tests and stable/beta client/server Mixin audits pass. Gameplay and
+modpack compatibility remain unverified. See
+[release/PUBLISH_CHECKLIST.md](release/PUBLISH_CHECKLIST.md) for current blockers.
 
-## Development builds (generally stable, but may occasionally have bugs)
-- 1.16.5: https://nightly.link/embeddedt/ModernFix/workflows/gradle/1.16/Package.zip
-- 1.18.2: https://nightly.link/embeddedt/ModernFix/workflows/gradle/1.18/Package.zip
-- 1.19.2: https://nightly.link/embeddedt/ModernFix/workflows/gradle/1.19.2/Package.zip
-- 1.20.1: https://nightly.link/embeddedt/ModernFix/workflows/gradle/1.20/Package.zip
-- 1.20.2: https://nightly.link/embeddedt/ModernFix/workflows/gradle/1.20.2/Package.zip
+Fork changes focus on resource ZIP validation, bounded-stack index traversal,
+configuration replacement that preserves the previous file when writing fails,
+and executor shutdown correctness. Code and regression tests are in this repository.
 
-------------
+Original project: [embeddedt/ModernFix](https://github.com/embeddedt/ModernFix).
+The upstream README, credits and acknowledgements are preserved under
+[doc/upstream](doc/upstream). All original copyright notices remain in source.
+The complete upstream Git history is retained. License: **LGPL-3.0-or-later**;
+[LICENSE](LICENSE) contains both LGPL v3 and GPL v3 texts.
 
-![YourKit logo](https://www.yourkit.com/images/yklogo.png)
+Codex generated the new fork implementation and publishing text. This disclosure
+covers MeridianFix changes; inherited AI credit is retained in ATTRIBUTION.md.
+Modrinth's rules assess the original additions of an AI-assisted fork separately;
+this development snapshot is not cleared for public Modrinth publication.
 
-YourKit supports open source projects with innovative and intelligent tools
-for monitoring and profiling Java and .NET applications.
-YourKit is the creator of <a href="https://www.yourkit.com/java/profiler/">YourKit Java Profiler</a>,
-<a href="https://www.yourkit.com/.net/profiler/">YourKit .NET Profiler</a>,
-and <a href="https://www.yourkit.com/youmonitor/">YourKit YouMonitor</a>.
-
-Thanks to YourKit for providing a free license for this project.
+Build with Java 25: `./gradlew --no-daemon build`.
