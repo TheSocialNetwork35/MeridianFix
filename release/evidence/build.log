@@ -2,16 +2,92 @@ To honour the JVM settings for this build a single-use Daemon process will be fo
 Daemon will be stopped at the end of the build 
 
 > Configure project :
-Minecraft Maven is up-to-date, took 0:03.265
+Minecraft Mavenizer 0.5.14 by Forge Development LLC
+  Output:             HOME_DIRECTORY/.cache/modernfix-reforged/main/.gradle/mavenizer/repo
+  Output JSON:        HOME_DIRECTORY/.cache/modernfix-reforged/main/.gradle/mavenizer/dependencies/default.json
+  Dependencies Only:  false
+  Cache:              HOME_DIRECTORY/.gradle/caches/minecraftforge/forgegradle/mavenizer/caches
+  JDK Cache:          HOME_DIRECTORY/.gradle/caches/minecraftforge/forgegradle/mavenizer/caches
+  Offline:            false
+  Cache Only:         false
+  Ignore Cache:       false
+  Mappings:           auto
+  Foreign Repos:      [https://cursemaven.com/, https://repo.maven.apache.org/maven2/, https://maven.minecraftforge.net/, https://libraries.minecraft.net/]
+  GradleVariantHack:  true
+  Disable Gradle:     false
+  Stub Jars:          false
+  Access Transformer: HOME_DIRECTORY/.cache/modernfix-reforged/main/src/main/resources/META-INF/accesstransformer.cfg
 
-> Task :annotations:compileJava UP-TO-DATE
+Processing Minecraft dependency: net.minecraftforge:forge:26.3-66.0.3
+Using Mappings: official-26.3
+Processing Minecraft Forge (userdev): 26.3-66.0.3
+Mappings Zip
+  srg2names[official-26.3][Empty]
+Mappings POM
+  pom[mappings_official]
+Client Extra
+  downloadLauncherManifest
+  downloadVersionJson[26.3]
+  download[26.3][client]
+  extra[client]
+  access-transform
+    Cache miss!
+    java.lang.Exception: Cache miss! Stacktrace for Information Only
+    	at net.minecraftforge.mcmaven.impl.Mavenizer.assertNotCacheOnly(Mavenizer.java:60)
+    	at net.minecraftforge.mcmaven.impl.Mavenizer.checkCache(Mavenizer.java:94)
+    	at net.minecraftforge.mcmaven.impl.MinecraftMaven.accessTransform(MinecraftMaven.java:515)
+    	at net.minecraftforge.mcmaven.impl.MinecraftMaven.lambda$accessTransform$0(MinecraftMaven.java:502)
+    	at net.minecraftforge.mcmaven.impl.util.Task$Simple.execute(Task.java:145)
+    	at net.minecraftforge.mcmaven.impl.repo.Repo$PendingArtifact.get(Repo.java:243)
+    	at net.minecraftforge.mcmaven.impl.MinecraftMaven.finalize(MinecraftMaven.java:408)
+    	at net.minecraftforge.mcmaven.impl.MinecraftMaven.createForge(MinecraftMaven.java:241)
+    	at net.minecraftforge.mcmaven.impl.MinecraftMaven.run(MinecraftMaven.java:119)
+    	at net.minecraftforge.mcmaven.cli.MavenTask.run(MavenTask.java:218)
+    	at net.minecraftforge.mcmaven.cli.Main.run(Main.java:70)
+    	at net.minecraftforge.mcmaven.cli.Main.main(Main.java:23)
+Client Maven POM
+  pom[client-extra]
+Sources
+  listLibraries
+  stripClient
+  download[26.3][server]
+  extractServer
+  stripServer
+  merge
+  modifyAccess
+  stripSides
+  decompile
+  patch
+  patch[forge]
+  downloadSources
+  injectSources[forge]
+  remap[forge][official-26.3][javadoc]
+  remap[forge][official-26.3][javadoc][variants]
+Classes
+  recompile[forge][official-26.3]
+  injectData[forge][official-26.3]
+  access-transform
+  injectData[forge][official-26.3][variants]
+Maven POM
+  pom[forge]
+Metadata
+  metadata[forge]
+  metadata[forge][variants]
+Minecraft Maven has finished, took 0:08.452
+
+> Task :annotations:compileJava
+Warnung: [options] Quellwert 8 ist veraltet und wird in einem zukünftigen Release entfernt
+Warnung: [options] Zielwert 8 ist veraltet und wird in einem zukünftigen Release entfernt
+Warnung: [options] Verwenden Sie -Xlint:-options, um Warnungen zu veralteten Optionen zu unterdrücken.
+3 Warnungen
+
 > Task :annotations:processResources NO-SOURCE
-> Task :annotations:classes UP-TO-DATE
-> Task :annotations:jar UP-TO-DATE
-> Task :annotation-processor:compileJava UP-TO-DATE
-> Task :annotation-processor:processResources UP-TO-DATE
-> Task :annotation-processor:classes UP-TO-DATE
-> Task :annotation-processor:shadowJar UP-TO-DATE
+> Task :annotations:classes
+> Task :annotations:jar
+> Task :annotation-processor:compileJava
+> Task :annotation-processor:processResources
+> Task :annotation-processor:classes
+> Task :annotation-processor:shadowJar
 
 > Task :compileJava
 Warnung: cofh.lib.util.flags.FlagManager can't be loaded, so it is skipped!
@@ -23,259 +99,34 @@ Hinweis: Einige Eingabedateien verwenden nicht geprüfte oder unsichere Vorgäng
 Hinweis: Wiederholen Sie die Kompilierung mit -Xlint:unchecked, um Details zu erhalten.
 3 Warnungen
 
-> Task :processResources UP-TO-DATE
+> Task :processResources
 > Task :classes
 > Task :jar
 > Task :sourcesJar
 > Task :assemble
-> Task :compileTestJava UP-TO-DATE
+> Task :compileTestJava
 > Task :processTestResources NO-SOURCE
-> Task :testClasses UP-TO-DATE
+> Task :testClasses
 > Task :test
 > Task :check
 > Task :build
-> Task :annotation-processor:jar UP-TO-DATE
-> Task :annotation-processor:assemble UP-TO-DATE
+> Task :annotation-processor:jar
+> Task :annotation-processor:assemble
 > Task :annotation-processor:compileTestJava NO-SOURCE
 > Task :annotation-processor:processTestResources NO-SOURCE
 > Task :annotation-processor:testClasses UP-TO-DATE
 > Task :annotation-processor:test NO-SOURCE
 > Task :annotation-processor:check UP-TO-DATE
-> Task :annotation-processor:build UP-TO-DATE
-> Task :annotations:assemble UP-TO-DATE
+> Task :annotation-processor:build
+> Task :annotations:assemble
 > Task :annotations:compileTestJava NO-SOURCE
 > Task :annotations:processTestResources NO-SOURCE
 > Task :annotations:testClasses UP-TO-DATE
 > Task :annotations:test NO-SOURCE
 > Task :annotations:check UP-TO-DATE
-> Task :annotations:build UP-TO-DATE
-> Task :slimeLauncherMetadataForForge UP-TO-DATE
+> Task :annotations:build
 
-> Task :runServer
-Slime Launcher setup is up-to-date, took 117ms
-Launching using main class: net.minecraftforge.bootstrap.ForgeBootstrap
-WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
-WARNING: sun.misc.Unsafe::objectFieldOffset has been called by net.minecraftforge.unsafe.UnsafeHacks (file:HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/net.minecraftforge/unsafe/0.9.2/33bad02861cabd77c54a8c9d1205e8638bbbbb4f/unsafe-0.9.2.jar)
-WARNING: Please consider reporting this to the maintainers of class net.minecraftforge.unsafe.UnsafeHacks
-WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
-Ignoring duplicate module on SecureModuleFinder: org.lwjgl.freetype.natives: Jar[jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-freetype/3.4.3/2b6c33ec08fe2950de44bd40f6f3ff45ffa2e53e/lwjgl-freetype-3.4.3-natives-macos-arm64.jar!/]
-Ignoring duplicate module on SecureModuleFinder: org.lwjgl.jemalloc.natives: Jar[jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-jemalloc/3.4.3/e3b0e4bb74f9ff9c9165638cebe8efb49af3d599/lwjgl-jemalloc-3.4.3-natives-macos-arm64.jar!/]
-Ignoring duplicate module on SecureModuleFinder: org.lwjgl.openal.natives: Jar[jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-openal/3.4.3/12ab2b7de803ea315a56f39aebfcf148823ffe01/lwjgl-openal-3.4.3-natives-macos-arm64.jar!/]
-Ignoring duplicate module on SecureModuleFinder: org.lwjgl.opengl.natives: Jar[jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-opengl/3.4.3/102115f47189fbdaecce4f6e1bbff60f0435284b/lwjgl-opengl-3.4.3-natives-macos-arm64.jar!/]
-Ignoring duplicate module on SecureModuleFinder: org.lwjgl.sdl.natives: Jar[jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-sdl/3.4.3/9165eaef243de41f544decabda5553181667a44d/lwjgl-sdl-3.4.3-natives-macos-arm64.jar!/]
-Ignoring duplicate module on SecureModuleFinder: org.lwjgl.shaderc.natives: Jar[jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-shaderc/3.4.3/89bf79fc7200f1fa73563c9ab25316723145b4ba/lwjgl-shaderc-3.4.3-natives-macos-arm64.jar!/]
-Ignoring duplicate module on SecureModuleFinder: org.lwjgl.spvc.natives: Jar[jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-spvc/3.4.3/4b8d46f798f3d5d5185450ce1125f99eb3bf62dd/lwjgl-spvc-3.4.3-natives-macos-arm64.jar!/]
-Ignoring duplicate module on SecureModuleFinder: org.lwjgl.stb.natives: Jar[jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-stb/3.4.3/fbbcc42d384898287f92689e65c35e8969d820c0/lwjgl-stb-3.4.3-natives-macos-arm64.jar!/]
-Ignoring duplicate module on SecureModuleFinder: org.lwjgl.vma.natives: Jar[jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-vma/3.4.3/cf3e7dec8869e955ba4d7cc47699823dd139a461/lwjgl-vma-3.4.3-natives-macos-arm64.jar!/]
-Ignoring duplicate module on SecureModuleFinder: org.lwjgl.vulkan.natives: Jar[jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-vulkan/3.4.3/5793efc9c640ee0a615f5e45d42eeec686e12704/lwjgl-vulkan-3.4.3-natives-macos-arm64.jar!/]
-Ignoring duplicate module on SecureModuleFinder: org.lwjgl.natives: Jar[jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl/3.4.3/9e41227b9e0aca9510f3196d45b3c6dd4048bd78/lwjgl-3.4.3-natives-macos-arm64.jar!/]
-WARNING: A restricted method in java.lang.System has been called
-WARNING: java.lang.System::load has been called by org.jline.nativ.JLineNativeLoader in module org.jline.nativ (jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.jline/jline-native/3.25.1/7f58e474f7d94db5bf87b1fddf4fa646475779f2/jline-native-3.25.1.jar!/)
-WARNING: Use --enable-native-access=org.jline.nativ to avoid a warning for callers in this module
-WARNING: Restricted methods will be blocked in a future release unless native access is enabled
-
-[32m[16:54:43] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--gameDir, ., --launchTarget, forge_userdev_server, --mixin.config=modernfix-modernfix.mixins.json, --nogui]
-[m[32m[16:54:43] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 25.0.4.1+1-LTS
-[m[32m[16:54:43] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 10.2.6 starting: java version 25.0.4.1 by Eclipse Adoptium; OS Mac OS X arch aarch64 version 27.0
-[m[32m[16:54:43] [main/INFO] [ne.mi.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forge_userdev_server
-[m[32m[16:54:43] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.7/8ab114ac385e6dbdad5efafe28aba4df8120915f/mixin-0.8.7.jar!/ Service=ModLauncher Env=SERVER
-[m[32m[16:54:44] [main/INFO] [ne.mi.fm.lo.mo.JarInJarDependencyLocator/JAR-JAR]: JarJar Candidated for com.github.LlamaLad7:MixinExtras
-[m[32m[16:54:44] [main/INFO] [ne.mi.fm.lo.mo.JarInJarDependencyLocator/JAR-JAR]: 	*mixinextras-forge-0.5.4.jar!/META-INF/jars/MixinExtras-0.5.4.jar
-[m[32m[16:54:44] [main/INFO] [ne.mi.fm.lo.mo.JarInJarDependencyLocator/JAR-JAR]: JarJar Candidated for io.github.llamalad7:mixinextras-forge
-[m[32m[16:54:44] [main/INFO] [ne.mi.fm.lo.mo.JarInJarDependencyLocator/JAR-JAR]: 	*mixinextras-forge-0.5.4.jar
-[m[32m[16:54:44] [main/INFO] [ne.mi.fm.lo.mo.JarInJarDependencyLocator/JAR-JAR]: Found 2 dependencies adding them to mods collection
-[m[32m[16:54:44] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
-[m[32m[16:54:44] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forge_userdev_server' with arguments [--gameDir, ., --nogui]
-[m[32m[16:54:44] [main/INFO] [ModernFix/]: Configured stability_level to 'BETA' via JVM property.
-[m[32m[16:54:44] [main/INFO] [ModernFix/]: Loaded configuration file for ModernFix 0.1.0-alpha.1+mc26.3: 70 options available, 1 override(s) found
-[m[33m[16:54:44] [main/WARN] [ModernFix/]: ModernFix stability level is set to BETA. Features at this level may be unstable or cause crashes.
-[m[33m[16:54:44] [main/WARN] [ModernFix/]: Option 'stability_level' overriden (by user configuration) to 'BETA'
-[m[32m[16:54:44] [main/INFO] [ModernFix/]: Applying Nashorn fix
-[m[32m[16:54:44] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.4).
-[m[32m[16:54:44] [main/INFO] [minecraft/Bootstrap]: ModernFix reached bootstrap stage (3.091 s after launch)
-[m[32m[16:54:45] [main/INFO] [minecraft/Bootstrap]: Vanilla bootstrap took 617 milliseconds
-[m[32m[16:54:46] [modloading-worker-0/INFO] [ModernFix/]: ModernFix Reforged: unofficial ModernFix fork for Minecraft 26.3; not endorsed by upstream.
-[m[32m[16:54:46] [modloading-worker-0/INFO] [ne.mi.co.ForgeMod/FORGEMOD]: Forge mod loading, version 66.0.3, for MC 26.3 with MCP 20260918.230105
-[m[32m[16:54:46] [modloading-worker-0/INFO] [ne.mi.co.MinecraftForge/FORGE]: MinecraftForge v66.0.3 Initialized
-[m[32m[16:54:46] [modloading-worker-0/INFO] [ne.mi.co.ForgeMod/FORGEMOD]: Opening jdk.naming.dns/com.sun.jndi.dns to java.naming
-[m[32m[16:54:46] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.server.packs.FilePackResources
-[m[32m[16:54:46] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.server.level.ServerChunkCache
-[m[32m[16:54:46] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.server.level.ChunkHolder
-[m[32m[16:54:46] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.material.condition.YCondition$1
-[m[32m[16:54:46] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.material.condition.StoneDepthCondition$1
-[m[32m[16:54:46] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.util.datafix.fixes.BlockStateData
-[m[32m[16:54:47] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.PalettedContainer
-[m[32m[16:54:47] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.server.level.ChunkMap
-[m[32m[16:54:47] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
-[m[32m[16:54:47] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.server.packs.FilePackResources$SharedZipFileAccess
-[m[32m[16:54:47] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.material.condition.VerticalGradientCondition$1
-[m[32m[16:54:47] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.material.condition.WaterCondition$1
-[m[32m[16:54:47] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.util.SortedArraySet
-[m[32m[16:54:47] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.data.registries.VanillaRegistries
-[m[32m[16:54:47] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.ImposterProtoChunk
-[m[32m[16:54:47] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.server.packs.resources.ProfiledReloadInstance
-[m[32m[16:54:47] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.material.condition.BiomeCondition$1
-[m[32m[16:54:47] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase$Cache
-[m[32m[16:54:47] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.server.packs.resources.SimpleReloadInstance
-[m[32m[16:54:47] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.server.ServerFunctionManager
-[m[32m[16:54:47] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.server.WorldLoader
-[m[32m[16:54:47] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.server.packs.PathPackResources
-[m[32m[16:54:47] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.tags.TagEntry
-[m[32m[16:54:47] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.status.ChunkStatusTasks
-[m[32m[16:54:47] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.server.ReloadableServerResources
-[m[32m[16:54:47] [main/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.ChunkGeneratorStructureState
-[m[32m[16:54:47] [main/INFO] [ModernFix/]: REFORGED_MIXIN_AUDIT_PASSED side=server
-[m
-> Task :runClient
-Slime Launcher setup is up-to-date, took 176ms
-Launching using main class: net.minecraftforge.bootstrap.ForgeBootstrap
-WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
-WARNING: sun.misc.Unsafe::objectFieldOffset has been called by net.minecraftforge.unsafe.UnsafeHacks (file:HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/net.minecraftforge/unsafe/0.9.2/33bad02861cabd77c54a8c9d1205e8638bbbbb4f/unsafe-0.9.2.jar)
-WARNING: Please consider reporting this to the maintainers of class net.minecraftforge.unsafe.UnsafeHacks
-WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
-Ignoring duplicate module on SecureModuleFinder: org.lwjgl.freetype.natives: Jar[jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-freetype/3.4.3/2b6c33ec08fe2950de44bd40f6f3ff45ffa2e53e/lwjgl-freetype-3.4.3-natives-macos-arm64.jar!/]
-Ignoring duplicate module on SecureModuleFinder: org.lwjgl.jemalloc.natives: Jar[jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-jemalloc/3.4.3/e3b0e4bb74f9ff9c9165638cebe8efb49af3d599/lwjgl-jemalloc-3.4.3-natives-macos-arm64.jar!/]
-Ignoring duplicate module on SecureModuleFinder: org.lwjgl.openal.natives: Jar[jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-openal/3.4.3/12ab2b7de803ea315a56f39aebfcf148823ffe01/lwjgl-openal-3.4.3-natives-macos-arm64.jar!/]
-Ignoring duplicate module on SecureModuleFinder: org.lwjgl.opengl.natives: Jar[jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-opengl/3.4.3/102115f47189fbdaecce4f6e1bbff60f0435284b/lwjgl-opengl-3.4.3-natives-macos-arm64.jar!/]
-Ignoring duplicate module on SecureModuleFinder: org.lwjgl.sdl.natives: Jar[jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-sdl/3.4.3/9165eaef243de41f544decabda5553181667a44d/lwjgl-sdl-3.4.3-natives-macos-arm64.jar!/]
-Ignoring duplicate module on SecureModuleFinder: org.lwjgl.shaderc.natives: Jar[jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-shaderc/3.4.3/89bf79fc7200f1fa73563c9ab25316723145b4ba/lwjgl-shaderc-3.4.3-natives-macos-arm64.jar!/]
-Ignoring duplicate module on SecureModuleFinder: org.lwjgl.spvc.natives: Jar[jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-spvc/3.4.3/4b8d46f798f3d5d5185450ce1125f99eb3bf62dd/lwjgl-spvc-3.4.3-natives-macos-arm64.jar!/]
-Ignoring duplicate module on SecureModuleFinder: org.lwjgl.stb.natives: Jar[jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-stb/3.4.3/fbbcc42d384898287f92689e65c35e8969d820c0/lwjgl-stb-3.4.3-natives-macos-arm64.jar!/]
-Ignoring duplicate module on SecureModuleFinder: org.lwjgl.vma.natives: Jar[jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-vma/3.4.3/cf3e7dec8869e955ba4d7cc47699823dd139a461/lwjgl-vma-3.4.3-natives-macos-arm64.jar!/]
-Ignoring duplicate module on SecureModuleFinder: org.lwjgl.vulkan.natives: Jar[jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-vulkan/3.4.3/5793efc9c640ee0a615f5e45d42eeec686e12704/lwjgl-vulkan-3.4.3-natives-macos-arm64.jar!/]
-Ignoring duplicate module on SecureModuleFinder: org.lwjgl.natives: Jar[jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl/3.4.3/9e41227b9e0aca9510f3196d45b3c6dd4048bd78/lwjgl-3.4.3-natives-macos-arm64.jar!/]
-WARNING: A restricted method in java.lang.System has been called
-WARNING: java.lang.System::load has been called by org.jline.nativ.JLineNativeLoader in module org.jline.nativ (jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.jline/jline-native/3.25.1/7f58e474f7d94db5bf87b1fddf4fa646475779f2/jline-native-3.25.1.jar!/)
-WARNING: Use --enable-native-access=org.jline.nativ to avoid a warning for callers in this module
-WARNING: Restricted methods will be blocked in a future release unless native access is enabled
-
-[32m[16:54:48] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--gameDir, ., --launchTarget, forge_userdev_client, --version, MOD_DEV, --assetIndex, 34, --assetsDir, HOME_DIRECTORY/Library/Application Support/minecraft/assets, --mixin.config=modernfix-modernfix.mixins.json]
-[m[32m[16:54:48] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 25.0.4.1+1-LTS
-[m[32m[16:54:48] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 10.2.6 starting: java version 25.0.4.1 by Eclipse Adoptium; OS Mac OS X arch aarch64 version 27.0
-[m[32m[16:54:48] [main/INFO] [ne.mi.fm.lo.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
-[m[32m[16:54:48] [main/INFO] [ne.mi.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider fmlearlywindow does not support default, switching to dummyprovider
-[m[32m[16:54:48] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.7/8ab114ac385e6dbdad5efafe28aba4df8120915f/mixin-0.8.7.jar!/ Service=ModLauncher Env=CLIENT
-[m[32m[16:54:49] [main/INFO] [ne.mi.fm.lo.mo.JarInJarDependencyLocator/JAR-JAR]: JarJar Candidated for com.github.LlamaLad7:MixinExtras
-[m[32m[16:54:49] [main/INFO] [ne.mi.fm.lo.mo.JarInJarDependencyLocator/JAR-JAR]: 	*mixinextras-forge-0.5.4.jar!/META-INF/jars/MixinExtras-0.5.4.jar
-[m[32m[16:54:49] [main/INFO] [ne.mi.fm.lo.mo.JarInJarDependencyLocator/JAR-JAR]: JarJar Candidated for io.github.llamalad7:mixinextras-forge
-[m[32m[16:54:49] [main/INFO] [ne.mi.fm.lo.mo.JarInJarDependencyLocator/JAR-JAR]: 	*mixinextras-forge-0.5.4.jar
-[m[32m[16:54:49] [main/INFO] [ne.mi.fm.lo.mo.JarInJarDependencyLocator/JAR-JAR]: Found 2 dependencies adding them to mods collection
-[m[32m[16:54:49] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
-[m[32m[16:54:49] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forge_userdev_client' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, HOME_DIRECTORY/Library/Application Support/minecraft/assets, --assetIndex, 34]
-[m[32m[16:54:49] [main/INFO] [ModernFix/]: Configured stability_level to 'BETA' via JVM property.
-[m[32m[16:54:49] [main/INFO] [ModernFix/]: Loaded configuration file for ModernFix 0.1.0-alpha.1+mc26.3: 70 options available, 1 override(s) found
-[m[33m[16:54:49] [main/WARN] [ModernFix/]: ModernFix stability level is set to BETA. Features at this level may be unstable or cause crashes.
-[m[33m[16:54:49] [main/WARN] [ModernFix/]: Option 'stability_level' overriden (by user configuration) to 'BETA'
-[m[32m[16:54:49] [main/INFO] [ModernFix/]: Applying Nashorn fix
-[m[32m[16:54:49] [main/INFO] [ModernFix/]: Configuring Minecraft's max.bg.threads option with 5 threads
-[m[32m[16:54:50] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.4).
-[mWARNING: A restricted method in java.lang.System has been called
-WARNING: java.lang.System::load has been called by org.lwjgl.system.Library$$Lambda/0x000020000158fc00 in module org.lwjgl (jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl/3.4.3/7ab5265a73d8a959ed62332d546536ae6be2f0d5/lwjgl-3.4.3.jar!/)
-WARNING: Use --enable-native-access=org.lwjgl to avoid a warning for callers in this module
-WARNING: Restricted methods will be blocked in a future release unless native access is enabled
-
-WARNING: A restricted method in java.lang.System has been called
-WARNING: java.lang.System::load has been called by org.lwjgl.stb.LibSTB$$Lambda/0x000020000160e800 in module org.lwjgl.stb (jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-stb/3.4.3/cdce54785bd3758e44a81f345d6260774d921c78/lwjgl-stb-3.4.3.jar!/)
-WARNING: Use --enable-native-access=org.lwjgl.stb to avoid a warning for callers in this module
-WARNING: Restricted methods will be blocked in a future release unless native access is enabled
-
-WARNING: A restricted method in java.lang.System has been called
-WARNING: java.lang.System::load has been called by org.lwjgl.opengl.GL$$Lambda/0x000020000160fc00 in module org.lwjgl.opengl (jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-opengl/3.4.3/b81769ee48050f8c71e70839505f350bf9219d90/lwjgl-opengl-3.4.3.jar!/)
-WARNING: Use --enable-native-access=org.lwjgl.opengl to avoid a warning for callers in this module
-WARNING: Restricted methods will be blocked in a future release unless native access is enabled
-
-WARNING: A restricted method in java.lang.System has been called
-WARNING: java.lang.System::load has been called by org.lwjgl.util.vma.LibVma$$Lambda/0x000020000161f800 in module org.lwjgl.vma (jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-vma/3.4.3/816a6ac87f1e447e5346ca0e7a1078353f51fbd6/lwjgl-vma-3.4.3.jar!/)
-WARNING: Use --enable-native-access=org.lwjgl.vma to avoid a warning for callers in this module
-WARNING: Restricted methods will be blocked in a future release unless native access is enabled
-
-WARNING: A restricted method in java.lang.System has been called
-WARNING: java.lang.System::load has been called by com.sun.jna.Native in module com.sun.jna (jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna/5.17.0/33d12735bef894440780fce64f9758d420c7bae2/jna-5.17.0.jar!/)
-WARNING: Use --enable-native-access=com.sun.jna to avoid a warning for callers in this module
-WARNING: Restricted methods will be blocked in a future release unless native access is enabled
-
-[32m[16:54:51] [Datafixer Bootstrap #0/INFO] [mojang/DataFixerBuilder]: 307 Datafixer optimizations took 249 milliseconds
-[m[33m[16:54:51] [main/WARN] [os.so.os.ma.MacOperatingSystem/]: Unable to parse version 27.0 to a codename.
-[m[32m[16:54:51] [pool-4-thread-1/INFO] [minecraft/Bootstrap]: ModernFix reached bootstrap stage (3.927 s after launch)
-[m[32m[16:54:52] [pool-4-thread-1/INFO] [minecraft/Bootstrap]: Vanilla bootstrap took 542 milliseconds
-[m[33m[16:54:53] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:HOME_DIRECTORY/.cache/modernfix-reforged/mc26.3-forge/.gradle/mavenizer/repo/net/minecraftforge/forge/26.3-66.0.3/forge-26.3-66.0.3.jar%230!/assets/.mcassetsroot' uses unexpected schema
-[m[33m[16:54:53] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:HOME_DIRECTORY/.cache/modernfix-reforged/mc26.3-forge/.gradle/mavenizer/repo/net/minecraftforge/forge/26.3-66.0.3/forge-26.3-66.0.3.jar%230!/data/.mcassetsroot' uses unexpected schema
-[m[32m[16:54:53] [Render thread/INFO] [mojang/MinecraftServicesDiscoveryService]: Environment: Environment[discoveryUrl=https://discovery.minecraftservices.com/minecraft/client, name=PROD]
-[m[32m[16:54:53] [Render thread/INFO] [minecraft/Minecraft]: Setting user: Dev
-[m[32m[16:54:53] [Render thread/INFO] [minecraft/Minecraft]: Backend library: LWJGL version 3.4.3+4
-[m[33m[16:54:53] [Render thread/WARN] [minecraft/Minecraft]: Detected unexpected shutdown during last game startup: resetting fullscreen mode
-[m[32m[16:54:53] [Render thread/INFO] [mojang/SdlDebug]: SDL [SYSTEM]: App name: Minecraft
-[m[32m[16:54:53] [Render thread/INFO] [mojang/SdlDebug]: SDL [SYSTEM]: App version: 26.3
-[m[32m[16:54:53] [Render thread/INFO] [mojang/SdlDebug]: SDL [SYSTEM]: App ID: com.mojang.minecraft
-[m[32m[16:54:53] [Render thread/INFO] [mojang/SdlDebug]: SDL [SYSTEM]: SDL revision: SDL-3.4.14-62f10da
-[m[33m[16:54:53] [Render thread/WARN] [minecraft/Minecraft]: Detected unexpected shutdown during last game startup: forcing preferred graphics API to OpenGL
-[m[32m[16:54:53] [Render thread/INFO] [minecraft/Minecraft]: Using graphics backend OpenGL, using drivers: 4.1 Metal - 91.7
-[m[32m[16:54:53] [Render thread/INFO] [minecraft/Minecraft]: Using graphics device: Apple M2 (Apple)
-[m[32m[16:54:53] [Render thread/INFO] [minecraft/Minecraft]: Using graphics device extensions: GL_ARB_draw_indirect, GL_EXT_texture_filter_anisotropic
-[m[32m[16:54:53] [Render thread/INFO] [mojang/Window]: Created window using SDL video driver: cocoa
-[mWARNING: A restricted method in java.lang.System has been called
-WARNING: java.lang.System::load has been called by ca.weblite.nativeutils.NativeUtils in module javaobjectivecbridge (jar:file://HOME_DIRECTORY/.gradle/caches/modules-2/files-2.1/ca.weblite/java-objc-bridge/1.1/1227f9e0666314f9de41477e3ec277e542ed7f7b/java-objc-bridge-1.1.jar!/)
-WARNING: Use --enable-native-access=javaobjectivecbridge to avoid a warning for callers in this module
-WARNING: Restricted methods will be blocked in a future release unless native access is enabled
-
-[32m[16:54:54] [modloading-worker-0/INFO] [ModernFix/]: ModernFix Reforged: unofficial ModernFix fork for Minecraft 26.3; not endorsed by upstream.
-[m[32m[16:54:54] [modloading-worker-0/INFO] [ne.mi.co.ForgeMod/FORGEMOD]: Forge mod loading, version 66.0.3, for MC 26.3 with MCP 20260918.230105
-[m[32m[16:54:54] [modloading-worker-0/INFO] [ne.mi.co.MinecraftForge/FORGE]: MinecraftForge v66.0.3 Initialized
-[m[32m[16:54:54] [modloading-worker-0/INFO] [ne.mi.co.ForgeMod/FORGEMOD]: Opening jdk.naming.dns/com.sun.jndi.dns to java.naming
-[m[32m[16:54:54] [Download-1/INFO] [mojang/RealmsClient]: Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: 0
-[m[1;31m[16:54:54] [Download-1/ERROR] [mojang/RealmsClient]: Failed to fetch Realms feature flags
-com.mojang.realmsclient.exception.RealmsServiceException: Realms authentication error with message 'java.lang.RuntimeException: Failed to parse into SignedJWT: 0'
-	at TRANSFORMER/minecraft@26.3/com.mojang.realmsclient.client.RealmsClient.execute(RealmsClient.java:622) ~[forge-26.3-66.0.3.jar%230!/:?]
-	at TRANSFORMER/minecraft@26.3/com.mojang.realmsclient.client.RealmsClient.fetchFeatureFlags(RealmsClient.java:177) [forge-26.3-66.0.3.jar%230!/:?]
-	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1789) [?:?]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) [?:?]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) [?:?]
-	at java.base/java.lang.Thread.run(Thread.java:1474) [?:?]
-Transformer Audit:
-  com.mojang.realmsclient.client.RealmsClient
-    REASON: classloading
-  java.lang.Thread
-    REASON: mixin
-[m[32m[16:54:55] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, vanilla, mod:forge, mod:modernfix
-[mUNSUPPORTED (log once): gldCopyBufferSubData: NEEDS IMPLEMENTATION
-[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.renderer.chunk.SectionCompiler
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.model.geom.builders.CubeDefinition
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.material.condition.YCondition$1
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.server.level.ServerChunkCache
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.server.level.ChunkHolder
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.material.condition.StoneDepthCondition$1
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.util.datafix.fixes.BlockStateData
-[m[32m[16:54:55] [Worker-ResourceReload-2/INFO] [minecraft/UnihexProvider]: Found unifont_all_no_pua-17.0.01.hex, loading
-[m[32m[16:54:55] [Forge Version Check/INFO] [ne.mi.fm.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.server.Main
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.PalettedContainer
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.server.level.ChunkMap
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.material.condition.VerticalGradientCondition$1
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.material.condition.WaterCondition$1
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.gui.screens.worldselection.WorldOpenFlows
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.util.SortedArraySet
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.data.registries.VanillaRegistries
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.gui.font.providers.UnihexProvider$ByteContents
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.ImposterProtoChunk
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.gui.contextualbar.ExperienceBar
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.server.packs.resources.ProfiledReloadInstance
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.levelgen.material.condition.BiomeCondition$1
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.multiplayer.SessionSearchTrees
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase$Cache
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.gui.font.providers.UnihexProvider$ShortContents
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.server.ServerFunctionManager
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.multiplayer.ClientConfigurationPacketListenerImpl
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.server.WorldLoader
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.client.gui.screens.ConnectScreen
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.tags.TagEntry
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.stats.RecipeBookSettings
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.status.ChunkStatusTasks
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.server.ReloadableServerResources
-[m[32m[16:54:55] [Render thread/INFO] [mi.audit/]: Force-loading class net.minecraft.world.level.chunk.ChunkGeneratorStructureState
-[m[32m[16:54:55] [Render thread/INFO] [ModernFix/]: REFORGED_MIXIN_AUDIT_PASSED side=client
-[m
-[Incubating] Problems report is available at: file://HOME_DIRECTORY/.cache/modernfix-reforged/mc26.3-forge/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: file://HOME_DIRECTORY/.cache/modernfix-reforged/main/build/reports/problems/problems-report.html
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
 
@@ -283,6 +134,5 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.7.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 27s
-15 actionable tasks: 6 executed, 9 up-to-date
-Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.7.1/userguide/configuration_cache_enabling.html
+BUILD SUCCESSFUL in 21s
+12 actionable tasks: 12 executed

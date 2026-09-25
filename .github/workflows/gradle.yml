@@ -1,4 +1,4 @@
-# MeridianFix modification, 2026-09-25: build-only workflow; no upstream publishing or issue writes.
+# ModernFix Reforged modification, 2026-09-25: build-only workflow; no upstream publishing or issue writes.
 name: Verify ModernFix Reforged Forge
 on: [push, pull_request]
 permissions:
@@ -16,7 +16,7 @@ jobs:
       - run: ./gradlew --no-daemon build
       - uses: actions/upload-artifact@v4
         with:
-          name: meridianfix-build-and-tests
+          name: modernfix-reforged-build-and-tests
           path: |
             build/libs/
             build/reports/tests/

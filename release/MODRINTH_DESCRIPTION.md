@@ -42,7 +42,7 @@ StbStitcher adaptation: eigenraven and GTNewHorizons/lwjgl3ify contributors (LGP
 Fork maintainer: TheSocialNetwork35. Original notices and history remain. The fork
 retains LGPL-3.0-or-later; LICENSE includes LGPL v3 and GPL v3. Additional notices
 and complete corresponding source accompany the release.
-[Source and issues](https://github.com/TheSocialNetwork35/MeridianFix).
+[Source and issues](https://github.com/TheSocialNetwork35/ModernFix-Reforged).
 
 ## Disclosures and status
 

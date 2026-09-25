@@ -4,7 +4,7 @@ plugins {
     id 'net.minecraftforge.gradle' version '7.0.29'
 }
 group = 'org.embeddedt'
-version = '0.1.0-alpha.1+mc26.3'
+version = '0.1.0-alpha.2+mc26.3'
 base.archivesName = 'modernfix-reforged-forge'
 java { toolchain.languageVersion = JavaLanguageVersion.of(25); withSourcesJar() }
 minecraft {

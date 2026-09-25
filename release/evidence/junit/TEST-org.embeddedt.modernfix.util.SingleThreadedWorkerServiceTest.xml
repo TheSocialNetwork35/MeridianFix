@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.embeddedt.modernfix.util.SingleThreadedWorkerServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-09-25T14:54:41.592Z" hostname="5.local" time="0.004">
+<testsuite name="org.embeddedt.modernfix.util.SingleThreadedWorkerServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-09-25T15:19:50.722Z" hostname="5.local" time="0.003">
   <properties/>
-  <testcase name="workerCannotAcceptNewTasksAfterShutdown()" classname="org.embeddedt.modernfix.util.SingleThreadedWorkerServiceTest" time="0.003"/>
-  <testcase name="nestedSubmissionCompletesWithoutDeadlock()" classname="org.embeddedt.modernfix.util.SingleThreadedWorkerServiceTest" time="0.001"/>
+  <testcase name="workerCannotAcceptNewTasksAfterShutdown()" classname="org.embeddedt.modernfix.util.SingleThreadedWorkerServiceTest" time="0.002"/>
+  <testcase name="nestedSubmissionCompletesWithoutDeadlock()" classname="org.embeddedt.modernfix.util.SingleThreadedWorkerServiceTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

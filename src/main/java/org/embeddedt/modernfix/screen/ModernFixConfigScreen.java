@@ -27,7 +27,7 @@ public class ModernFixConfigScreen extends Screen {
         this.optionList.setScrollAmount(lastScrollAmount);
         this.addWidget(this.optionList);
         this.wikiButton = new Button.Builder(Component.translatable("modernfix.config.wiki"), (arg) -> {
-            com.mojang.blaze3d.Blaze3D.openUri(java.net.URI.create("https://github.com/TheSocialNetwork35/ModernFix Reforged"));
+            com.mojang.blaze3d.Blaze3D.openUri(java.net.URI.create("https://github.com/TheSocialNetwork35/ModernFix-Reforged"));
         }).pos(this.width / 2 - 155, this.height - 29).size(150, 20).build();
         this.doneButton = new Button.Builder(CommonComponents.GUI_DONE, (arg) -> {
             this.onClose();

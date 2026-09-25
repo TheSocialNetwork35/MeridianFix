@@ -4,7 +4,9 @@ Minecraft 26.3; Forge 66.0.3; Java 25; ForgeGradle 7.0.29; Gradle 9.7.1; macOS a
 Build: PASS. Regression tests: **12 passed, 0 failures/errors/skipped**.
 Tests are component-level JVM tests; they do not bootstrap a Forge game server.
 
-Mixin audit runs: client and dedicated server, both standard and beta tiers, PASS.
+Alpha 2: build, 12 component tests and standard-tier client/server Mixin audits PASS.
+Beta-tier audits passed on alpha 1; preserved audit-beta.log is historical evidence.
+Alpha 2 only changes links/branding/documentation and does not modify mixin behavior.
 Audits force-load eligible targets and exit during startup. They run in the development
 classpath, not a clean installed-JAR launcher instance. Optional absent mods and disabled
 or experimental-tier features are outside this coverage. Full gameplay/world creation,

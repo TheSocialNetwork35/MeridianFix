@@ -7,7 +7,7 @@
 - Environment: **Client and server** → **Optional on both, works best when installed on both sides**.
 - Version title: contents of VERSION_TITLE.txt.
 - Version number: contents of VERSION_NUMBER.txt. The loader suffix distinguishes the
-  Modrinth record; the embedded version is 0.1.0-alpha.1+mc26.3.
+  Modrinth record; the embedded version is 0.1.0-alpha.2+mc26.3.
 - License: **LGPL-3.0-or-later**, with included component notices.
 - Tags: optimization, utility. No measured performance gain is claimed.
 - Dependencies: no other mod required; mark original ModernFix incompatible because of
@@ -27,7 +27,7 @@
 - Paid features: NO. New advertisements: NO. No additional external system control or
   designed flashing feature was added. Review applicable upstream disclosures manually.
 - Source: exact branch/revision in RELEASE_PROVENANCE.txt; repository is
-  https://github.com/TheSocialNetwork35/MeridianFix. Issues: same URL plus /issues.
+  https://github.com/TheSocialNetwork35/ModernFix-Reforged. Issues: same URL plus /issues.
 
 Do not mark other game versions or loaders on this JAR. Public Modrinth eligibility
 remains blocked by the AI-origin rule; accurate disclosure alone does not resolve it.

@@ -43,3 +43,10 @@ No full equivalence with historical ModernFix versions or other loaders is asser
 
 Exact comparison: `git diff f797aa54988c5c200ac85e2a4d541ced3c39b0ed <release revision>`.
 The complete source archive and RELEASE_PROVENANCE.txt identify the release revision.
+
+## Alpha 2 / main integration
+
+Canonical GitHub name is now ModernFix-Reforged. Corrected repository links in loader
+metadata and release docs, and the malformed Open wiki button URI. Added the main
+branch version matrix and renamed CI artifacts. No optimization algorithm changes.
+The previous Forge source revision is 1c2b93a75c8de642f3501bf214b124ffe8b543c3.

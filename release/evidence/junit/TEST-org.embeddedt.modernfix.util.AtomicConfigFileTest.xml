@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.embeddedt.modernfix.util.AtomicConfigFileTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-09-25T14:54:41.583Z" hostname="5.local" time="0.009">
+<testsuite name="org.embeddedt.modernfix.util.AtomicConfigFileTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-09-25T15:19:50.711Z" hostname="5.local" time="0.011">
   <properties/>
   <testcase name="failedWritePreservesPreviousConfigurationAndCleansTemporaryFile()" classname="org.embeddedt.modernfix.util.AtomicConfigFileTest" time="0.003"/>
-  <testcase name="preservesSymlinkAndUpdatesItsTarget()" classname="org.embeddedt.modernfix.util.AtomicConfigFileTest" time="0.002"/>
-  <testcase name="successfulWriteReplacesFileWithPropertiesCompatibleEncoding()" classname="org.embeddedt.modernfix.util.AtomicConfigFileTest" time="0.002"/>
+  <testcase name="preservesSymlinkAndUpdatesItsTarget()" classname="org.embeddedt.modernfix.util.AtomicConfigFileTest" time="0.003"/>
+  <testcase name="successfulWriteReplacesFileWithPropertiesCompatibleEncoding()" classname="org.embeddedt.modernfix.util.AtomicConfigFileTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
