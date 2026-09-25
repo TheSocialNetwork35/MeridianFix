@@ -22,14 +22,14 @@ No Modrinth upload, submission or moderation approval has occurred.
 
 ## Technical checks before any distribution advertised for ordinary play
 
-- [x] Build distributable and corresponding sources with Java 25.
-- [x] Pass 12 Forge regression tests.
+- [x] Build distributable and corresponding sources with Java 17.
+- [x] Pass 12 JVM component regression tests.
 - [x] Pass stable and beta Mixin audits on client and dedicated server.
 - [x] Keep original LGPL/GPL text and source notices; include Apache-2.0 notice/license.
 - [ ] MANUAL: install final JAR in clean 1.20.1/Forge instances on client and server.
 - [ ] MANUAL: create disposable worlds, generate terrain/strongholds, save/reopen and join
       from a client; test disconnect/reconnect and resource reloads.
-- [ ] MANUAL: test base/overlay resource packs with beta options and incompatible packs;
+- [ ] MANUAL: test base resource packs with beta options and incompatible packs;
       confirm fallbacks and review other enabled beta options.
 - [ ] MANUAL: test desired third-party mods individually; record exact versions. Disabled
       and EXPERIMENTAL features are outside current test coverage.
@@ -42,7 +42,7 @@ No Modrinth upload, submission or moderation approval has occurred.
 - [ ] MANUAL DECISION: resolve public AI eligibility before public submission; unlisted
       distribution is not an automatic exemption or guaranteed approval.
 - [ ] MANUAL: recheck current rules and inherited upstream disclosures on upload day.
-- [ ] MANUAL: verify MeridianFix name/slug, account ownership and support responsibilities.
+- [ ] MANUAL: verify ModernFix Reforged name/slug, account ownership and support responsibilities.
 - [ ] MANUAL: use MODRINTH_SETTINGS.md and the supplied name/summary/description files;
       accurately retain derivative, AI and optional profiling disclosures.
 - [ ] MANUAL: upload the runtime JAR as primary; sources JAR only as designated source
