@@ -1,22 +1,14 @@
 plugins {
-    id("net.neoforged.moddev.legacyforge") version("2.0.134")
-    id("me.modmuss50.mod-publish-plugin") version("2.1.1")
+    id("net.neoforged.moddev.legacyforge") version("2.0.147")
 }
 
 val minecraft_version = rootProject.properties["minecraft_version"].toString()
 
 group = "org.embeddedt"
 
-val gitVersion = providers.of(GitVersionSource::class) {
-    parameters {
-        minecraftVersion.set(minecraft_version)
-        projectDir.set(rootProject.layout.projectDirectory)
-    }
-}
+version = "0.1.0-alpha.1+mc1.20.1"
 
-version = gitVersion.get()
-
-base.archivesName = "modernfix-forge"
+base.archivesName = "modernfix-reforged-forge"
 
 legacyForge {
     enable {
@@ -32,6 +24,10 @@ legacyForge {
     }
 
     runs {
+        create("auditServer") { server(); jvmArguments.add("-Dmodernfix.auditAndExit=true") }
+        create("auditServerBeta") { server(); jvmArguments.addAll("-Dmodernfix.auditAndExit=true", "-Dmodernfix.config.stability_level=BETA") }
+        create("auditClientBeta") { client(); jvmArguments.addAll("-Dmodernfix.auditAndExit=true", "-Dmodernfix.config.stability_level=BETA", "-Djava.awt.headless=true") }
+
         create("client") {
             client()
         }
@@ -60,7 +56,7 @@ tasks.named<Jar>("jar") {
     manifest.attributes(mapOf(
         "MixinConfigs" to "modernfix-modernfix.mixins.json",
         "Specification-Version" to "1",
-        "Implementation-Title" to project.name,
+        "Implementation-Title" to "ModernFix Reforged (unofficial fork)",
         "Implementation-Version" to version
     ))
 }
@@ -191,48 +187,29 @@ tasks.named<ProcessResources>("processResources") {
     }
 }
 
-val finalJarTask = "reobfJar"
 
-tasks.register<Copy>("copyJarNameConsistent") {
-    from(tasks.named<Jar>(finalJarTask).get().outputs.files)
-    into(project.file("build/libs"))
-    rename { _ -> "modernfix-" + project.name + "-latest.jar" }
+// ModernFix Reforged: independently versioned, no upstream publication credentials or IDs.
+java { withSourcesJar() }
+tasks.withType<AbstractArchiveTask>().configureEach {
+    isPreserveFileTimestamps = false
+    isReproducibleFileOrder = true
 }
-
-tasks.register<Copy>("copyJarToBin") {
-    from(tasks.named<Jar>(finalJarTask).get().outputs.files)
-    into(rootProject.file("bin"))
-    mustRunAfter(tasks.named("copyJarNameConsistent"))
+tasks.withType<Jar>().configureEach {
+    from("LICENSE", "ATTRIBUTION.md", "THIRD_PARTY_NOTICES.md")
+    from("licenses") { into("licenses") }
 }
-
-tasks.named("build") {
-    dependsOn("copyJarToBin", "copyJarNameConsistent")
+tasks.named<Jar>("sourcesJar") { dependsOn(tasks.named("compileJava")) }
+dependencies {
+    testImplementation(platform("org.junit:junit-bom:5.13.4"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
+tasks.test { useJUnitPlatform() }
+tasks.named("build") { dependsOn("reobfJar") }
 
-publishMods {
-    file.set(tasks.named<Jar>(finalJarTask).flatMap { it.archiveFile })
-    displayName.set(tasks.named<Jar>(finalJarTask).flatMap { it.archiveFileName })
-    changelog = "Please check the [GitHub wiki](https://github.com/embeddedt/ModernFix/wiki/Changelog) for major changes."
-    type = STABLE
-
-    modLoaders.add("forge")
-
-    curseforge {
-        projectId = "790626"
-        projectSlug = "modernfix"
-        accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
-        minecraftVersions.add(minecraft_version)
-        client = true
-        server = true
-    }
-    modrinth {
-        projectId = "nmDcB62a"
-        accessToken = providers.environmentVariable("MODRINTH_TOKEN")
-        minecraftVersions.add(minecraft_version)
-        environment = CLIENT_OR_SERVER_PREFERS_BOTH
-    }
-}
-
-tasks.named("publishMods") {
-    dependsOn(finalJarTask)
+// LegacyForge does not inject game dependencies into the plain component-test source set.
+sourceSets.test {
+    compileClasspath += sourceSets.main.get().compileClasspath
+    runtimeClasspath += sourceSets.main.get().compileClasspath
+    runtimeClasspath += sourceSets.main.get().runtimeClasspath
 }

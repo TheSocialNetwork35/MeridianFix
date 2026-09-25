@@ -1,3 +1,4 @@
+// ModernFix Reforged modification, 2026-09-25: version-specific ZIP access and failure cache.
 package org.embeddedt.modernfix.common.mixin.perf.resourcepacks;
 
 import net.minecraft.server.packs.FilePackResources;
@@ -34,14 +35,16 @@ public class FilePackResourcesMixin {
     @Nullable
     private volatile ZipPackIndex mf$packIndex;
 
+    @Unique private volatile boolean mf$indexFailed;
+
     @Unique
     @Nullable
     private ZipPackIndex mf$getOrCreateIndex() {
         var index = mf$packIndex;
-        if (index == null) {
+        if (index == null && !mf$indexFailed) {
             synchronized (this) {
                 index = mf$packIndex;
-                if (index == null) {
+                if (index == null && !mf$indexFailed) {
                     // Ensure the ZipFile is open first; if it fails, getOrCreateZipFile returns null.
                     if (getOrCreateZipFile() == null) {
                         return null;
@@ -49,6 +52,7 @@ public class FilePackResourcesMixin {
                     try {
                         mf$packIndex = index = new ZipPackIndex(file.toPath());
                     } catch (IOException e) {
+                        mf$indexFailed = true;
                         ModernFix.LOGGER.error("Failed to build zip index for {}", file, e);
                     }
                 }
@@ -90,6 +94,9 @@ public class FilePackResourcesMixin {
      */
     @Inject(method = "close", at = @At("HEAD"))
     private void mf$invalidateIndex(CallbackInfo ci) {
-        mf$packIndex = null;
+        synchronized (this) {
+            mf$packIndex = null;
+            mf$indexFailed = false;
+        }
     }
 }

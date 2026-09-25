@@ -1,9 +1,12 @@
+// ModernFix Reforged modification, 2026-09-25: honor ExecutorService rejection semantics for inline tasks.
 package org.embeddedt.modernfix.util;
 
 import net.minecraft.util.thread.ProcessorMailbox;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.AbstractExecutorService;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -59,6 +62,10 @@ public class SingleThreadedWorkerService extends AbstractExecutorService {
 
     @Override
     public void execute(@NotNull Runnable command) {
+        Objects.requireNonNull(command, "command");
+        if (executorService.isShutdown()) {
+            throw new RejectedExecutionException("Worker service is shut down");
+        }
         if (!isForcedAsyncCommand(command) && Thread.currentThread() == thread.get()) {
             command.run();
         } else {
